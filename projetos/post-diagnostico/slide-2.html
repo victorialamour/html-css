@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><title>slide-2 — Victória L'Amour</title>
+<link rel="stylesheet" href="fontes.css"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+.sl{position:relative;width:1080px;height:1350px;overflow:hidden;
+  font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.sl .art{position:absolute;inset:0;display:block}
+.tx{position:absolute;inset:0;padding:104px 96px 150px;display:flex;flex-direction:column}
+.tx.mid{justify-content:center;padding-top:96px}
+.eye{font:500 20px/1 Inter,sans-serif;letter-spacing:.26em;margin-bottom:52px}
+h1{font:500 66px/1.12 'Inter Tight',Inter,sans-serif;letter-spacing:-.032em}
+h1 em{font:400 72px/1.12 'Instrument Serif',Georgia,serif;font-style:italic;letter-spacing:-.012em}
+.sub{font:400 27px/1.55 Inter,sans-serif;letter-spacing:-.005em;margin-top:40px;max-width:640px}
+.list{list-style:none;margin-top:56px;display:flex;flex-direction:column;gap:26px;max-width:640px}
+.list li{font:400 27px/1.45 Inter,sans-serif;letter-spacing:-.005em;padding-left:52px;position:relative}
+.list li::before{content:"";position:absolute;left:0;top:.66em;width:30px;height:2px}
+.list.arrow li::before{width:30px;height:2px}
+.list.arrow li::after{content:"";position:absolute;left:22px;top:calc(.66em - 4px);width:10px;height:10px;
+  border-top:2px solid;border-right:2px solid;transform:rotate(45deg)}
+.cta{font:400 31px/1.5 Inter,sans-serif;letter-spacing:-.01em;max-width:660px;margin-top:30px;padding-bottom:26px}
+.meta{margin-top:auto;display:flex;flex-direction:column;gap:20px}
+.meta .rule{width:110px;height:1px;background:currentColor;opacity:.35}
+.meta p{font:500 18px/1.5 Inter,sans-serif;letter-spacing:.2em}
+.meta i{font-style:normal;opacity:.45;margin:0 3px}
+.ft{position:absolute;left:96px;right:96px;bottom:56px;display:flex;justify-content:space-between;
+  font:500 17px/1 Inter,sans-serif;letter-spacing:.2em}
+.ft i{font-style:normal;opacity:.4}
+.spacer{flex:1}
+
+/* fundo escuro */
+.dark{background:#150F2B;color:#F6F1EC}
+.dark .eye{color:#C3B7D8}
+.dark h1 em{background:linear-gradient(96deg,#FFB07A 0%,#FF87A6 58%,#C9A6FF 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.dark .sub,.dark .cta{color:#D6CDE6}
+.dark .meta p{color:#B0A3C9}
+.dark .list li{color:#EDE7F5}
+.dark .list li::before{background:#FF9A7A}
+.dark .list.arrow li::after{border-color:#FF9A7A}
+.dark .ft{color:#9C8FB8}
+
+/* marfim */
+.ivory{background:#FCFAF7;color:#141210}
+.ivory .eye{color:#8B7F76}
+.ivory h1 em{background:linear-gradient(96deg,#E0552C 0%,#D8407B 74%,#B14BAE 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.ivory .sub{color:#4E434B}
+.ivory .list li{color:#2A2429}
+.ivory .list li::before{background:#D8552F}
+.ivory .ft{color:#8B7F76}
+
+/* lilás-neblina */
+.mist{background:#EBE7EE;color:#171320}
+.mist .eye{color:#6B6478}
+.mist h1 em{background:linear-gradient(96deg,#DD5230 0%,#C63C86 62%,#6E4FD1 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.mist .sub{color:#5A5368}
+.mist .list li{color:#241F30}
+.mist .list li::before{background:#C63C86}
+.mist .ft{color:#6B6478}
+
+body{display:grid;place-items:center;min-height:100vh;background:#E9E6E1}</style></head>
+<body><div class="sl ivory" id="slide-2"><svg class="art" viewBox="0 0 1080 1350" width="1080" height="1350" aria-hidden="true">
+    <defs>
+      <linearGradient id="s2c" gradientUnits="userSpaceOnUse" x1="470" y1="1350" x2="1080" y2="520"><stop offset="0.0%" stop-color="#FFC98A"/><stop offset="16.7%" stop-color="#FF9C86"/><stop offset="33.3%" stop-color="#F58BB2"/><stop offset="50.0%" stop-color="#CE96E4"/><stop offset="66.7%" stop-color="#9BAFEE"/><stop offset="83.3%" stop-color="#9FD6DE"/><stop offset="100.0%" stop-color="#EFEBE2"/></linearGradient>
+      <linearGradient id="s2m" gradientUnits="userSpaceOnUse" x1="775" y1="935"
+        x2="1226.2" y2="1266.6">
+        <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+        <stop offset="16%" stop-color="#fff" stop-opacity="0.86"/>
+        <stop offset="42%" stop-color="#fff" stop-opacity="0.44"/>
+        <stop offset="72%" stop-color="#fff" stop-opacity="0.14"/>
+        <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <mask id="s2M"><rect width="1080" height="1350" fill="url(#s2m)"/></mask>
+      <clipPath id="s2P"><polygon points="470,1350 1080,520 1080,1350"/></clipPath>
+    </defs>
+    <g clip-path="url(#s2P)"><g mask="url(#s2M)"><rect width="1080" height="1350" fill="url(#s2c)"/></g></g>
+  <defs><filter id="s2n"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/>
+  <feColorMatrix type="saturate" values="0"/></filter></defs>
+  <rect width="1080" height="1350" filter="url(#s2n)" opacity="0.05" style="mix-blend-mode:multiply"/></svg><div class="tx mid"><p class="eye">O ERRO MAIS CARO</p>
+      <h1>Empresas treinam o time<br>naquilo que ele já faz bem.<br><em>E deixam intocado<br>o que trava o resultado.</em></h1>
+      <p class="sub">É por isso que o diagnóstico vem antes do treinamento — e não depois dele.</p></div><footer class="ft"><span>VICTÓRIA L'AMOUR</span><span class="pg">02 / 04</span></footer></div></body></html>
