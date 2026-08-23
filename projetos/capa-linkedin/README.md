@@ -31,6 +31,7 @@ direita de propósito; nada de texto ali.
 A manchete quebra em duas linhas e a palavra do conceito vai em `<em>`. Outras frases do
 mesmo repertório:
 
+- Quem `escuta` melhor, vende melhor.
 - Meta não se cobra, se `constrói`.
 - Time treinado não `improvisa`.
 - Da primeira conversa à `recompra`.
