@@ -2,62 +2,53 @@
 <html lang="pt-br"><head><meta charset="UTF-8"><title>slide-2 — Victória L'Amour</title>
 <link rel="stylesheet" href="fontes.css"><style>
 *{margin:0;padding:0;box-sizing:border-box}
-.sl{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.sl .art{position:absolute;inset:0;display:block}
-.tx{position:absolute;inset:0;padding:104px 96px 150px;display:flex;flex-direction:column}
-.tx.mid{justify-content:center;padding-top:96px}
-.eye{font:500 20px/1 Inter,sans-serif;letter-spacing:.26em;margin-bottom:52px}
-h1{font:500 66px/1.12 'Inter Tight',Inter,sans-serif;letter-spacing:-.032em}
-h1 em{font:400 72px/1.12 'Instrument Serif',Georgia,serif;font-style:italic;letter-spacing:-.012em;
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{font:400 27px/1.55 Inter,sans-serif;letter-spacing:-.005em;margin-top:40px;max-width:640px}
-.list{list-style:none;margin-top:56px;display:flex;flex-direction:column;gap:26px;max-width:660px}
-.list li{font:400 27px/1.45 Inter,sans-serif;letter-spacing:-.005em;padding-left:52px;position:relative}
-.list li::before{content:"";position:absolute;left:0;top:.66em;width:30px;height:2px}
-.list.arrow li::after{content:"";position:absolute;left:22px;top:calc(.66em - 4px);width:10px;height:10px;
-  border-top:2px solid;border-right:2px solid;transform:rotate(45deg)}
-.meta{margin-top:auto;display:flex;flex-direction:column;gap:20px}
-.meta .rule{width:110px;height:1px;background:currentColor;opacity:.35}
-.meta p{font:500 18px/1.5 Inter,sans-serif;letter-spacing:.2em}
-.meta i{font-style:normal;opacity:.45;margin:0 3px}
-.cta{font:400 31px/1.5 Inter,sans-serif;letter-spacing:-.01em;max-width:660px;margin-top:30px;padding-bottom:26px}
-.ft{position:absolute;left:96px;right:96px;bottom:56px;display:flex;justify-content:space-between;
-  font:500 17px/1 Inter,sans-serif;letter-spacing:.2em}
-.escura{background:#2B0E18;color:#F9F1EB}
-.escura .eye,.escura .ft,.escura .meta p{color:#C3A49C}
-.escura h1 em{background-image:linear-gradient(94deg,#F5B44E 0%,#EC7A38 52%,#D6404A 100%)}
-.escura .sub,.escura .cta{color:#E4CFC7}
-.escura .list li{color:#F9F1EB}
-.escura .list li::before{background:#F0913F}
-.escura .list.arrow li::after{border-color:#F0913F}
-.clara{background:#F5EEE9;color:#220F13}
-.clara .eye,.clara .ft{color:#7C6960}
-.clara h1 em{background-image:linear-gradient(94deg,#DD5F22 0%,#C42F3C 68%,#8E1D3A 100%)}
-.clara .sub{color:#5C4C46}
-.clara .list li{color:#2C1A1E}
-.clara .list li::before{background:#D4482A}
-body{display:grid;place-items:center;min-height:100vh;background:#E4DDD6}</style></head>
-<body><div class="sl clara"><svg class="art" viewBox="0 0 1080 1350" width="1080" height="1350" aria-hidden="true">
-    <defs>
-      <linearGradient id="s2fc" gradientUnits="userSpaceOnUse" x1="640" y1="0" x2="1080" y2="620"><stop offset="0.0%" stop-color="#FBD9A2"/><stop offset="20.0%" stop-color="#F7B47C"/><stop offset="40.0%" stop-color="#EE8A6A"/><stop offset="60.0%" stop-color="#DE6152"/><stop offset="80.0%" stop-color="#BE3A47"/><stop offset="100.0%" stop-color="#F0E7E1"/></linearGradient>
-      <linearGradient id="s2fm" gradientUnits="userSpaceOnUse" x1="860.0" y1="310.0"
-        x2="574.6" y2="512.6">
-        <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
-        <stop offset="15%" stop-color="#fff" stop-opacity="0.86"/>
-        <stop offset="40%" stop-color="#fff" stop-opacity="0.44"/>
-        <stop offset="70%" stop-color="#fff" stop-opacity="0.14"/>
-        <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-      </linearGradient>
-      <mask id="s2fM"><rect width="1080" height="1350" fill="url(#s2fm)"/></mask>
-      
-      <clipPath id="s2fP"><polygon points="640,0 1080,620 1080,0"/></clipPath>
-    </defs>
-    <g clip-path="url(#s2fP)"><g mask="url(#s2fM)">
-      <rect width="1080" height="1350" fill="url(#s2fc)"/>
-    </g></g>
-  <defs><filter id="s2g"><feTurbulence type="fractalNoise" baseFrequency="0.84" numOctaves="3" stitchTiles="stitch"/>
-  <feColorMatrix type="saturate" values="0"/></filter></defs>
-  <rect width="1080" height="1350" filter="url(#s2g)" opacity="0.05" style="mix-blend-mode:multiply"/></svg><div class="tx mid"><p class="eye">O ERRO MAIS CARO</p>
-      <h1>Empresas treinam o time<br>naquilo que ele já faz bem.<br><em>E deixam intocado<br>o que trava o resultado.</em></h1>
-      <p class="sub">É por isso que o diagnóstico vem antes do treinamento — e não depois dele.</p></div>
-  <footer class="ft"><span>VICTÓRIA L'AMOUR</span><span>02 / 04</span></footer></div></body></html>
+.sl{position:relative;width:1080px;height:1350px;overflow:hidden;
+  font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;padding:88px 96px 78px}
+
+/* cabeçalho de documento */
+.hd{display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:22px;border-bottom:1px solid var(--fio)}
+.lb{font:500 19px/1 Inter,sans-serif;letter-spacing:.24em;color:var(--muted)}
+.pg{font:500 19px/1 Inter,sans-serif;letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums}
+.pg i{font-style:normal;opacity:.45;margin:0 2px}
+
+/* corpo */
+.bd{flex:1;display:flex;flex-direction:column;justify-content:center;padding:48px 0}
+h1{font:500 64px/1.14 'Inter Tight',Inter,sans-serif;letter-spacing:-.032em;color:var(--ink)}
+h1 em{font:400 70px/1.14 'Instrument Serif',Georgia,serif;font-style:italic;letter-spacing:-.012em;color:var(--acento)}
+.sub{font:400 27px/1.55 Inter,sans-serif;color:var(--sub);margin-top:40px;max-width:660px}
+.nota{font:400 23px/1.5 Inter,sans-serif;color:var(--muted);margin-top:34px;max-width:640px}
+.li{list-style:none;margin-top:52px;display:flex;flex-direction:column}
+.li li{font:400 27px/1.45 Inter,sans-serif;color:var(--ink);display:flex;gap:26px;align-items:baseline;
+  padding:22px 0;border-top:1px solid var(--fio);max-width:720px}
+.li li:last-child{border-bottom:1px solid var(--fio)}
+.li span{font:500 15px/1 Inter,sans-serif;letter-spacing:.1em;color:var(--acento);
+  font-variant-numeric:tabular-nums;flex:none;position:relative;top:-2px}
+.cta{font:400 31px/1.5 Inter,sans-serif;color:var(--sub);margin-top:52px;max-width:700px}
+
+/* rodapé: sumário do carrossel */
+.ft{border-top:1px solid var(--fio);padding-top:24px;display:flex;flex-direction:column;gap:18px}
+.ix{list-style:none;display:flex;flex-wrap:wrap;gap:10px 26px}
+.ix li{font:400 16px/1 Inter,sans-serif;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.ix li b{font-weight:500;font-variant-numeric:tabular-nums;opacity:.6}
+.ix li.on{color:var(--acento);font-weight:500}
+.ix li.on b{opacity:1}
+.sg{font:500 15px/1 Inter,sans-serif;letter-spacing:.2em;color:var(--muted)}
+.sg i{font-style:normal;opacity:.45;margin:0 4px}
+
+.escuro{background:#0F2C3A;--ink:#F3F1EC;--sub:#C3D2DA;--muted:#8FA3AE;
+  --fio:rgba(243,241,236,.18);--acento:#E0865A}
+.claro{background:#F4F2ED;--ink:#16232B;--sub:#46545C;--muted:#6E7A81;
+  --fio:rgba(22,35,43,.16);--acento:#B4552F}
+body{display:grid;place-items:center;min-height:100vh;background:#DCD8D2}</style></head>
+<body><div class="sl claro">
+  <header class="hd">
+    <span class="lb">O ERRO MAIS CARO</span><span class="pg">02 <i>/</i> 04</span>
+  </header><div class="bd">
+    <h1>Empresas treinam o time<br>naquilo que ele já faz bem.<br><em>E deixam intocado<br>o que trava o resultado.</em></h1>
+    <p class="sub">É por isso que o diagnóstico vem antes do treinamento — e não depois dele.</p></div>
+  <footer class="ft">
+    <ol class="ix"><li><b>01</b> O problema</li><li class="on"><b>02</b> A tese</li><li><b>03</b> O que eu analiso</li><li><b>04</b> O que você recebe</li></ol>
+    <p class="sg">VICTÓRIA L'AMOUR <i>·</i> DIAGNÓSTICO COMERCIAL <i>·</i> RECIFE/PE</p>
+  </footer></div></body></html>
