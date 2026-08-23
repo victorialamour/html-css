@@ -2,111 +2,62 @@
 <html lang="pt-br"><head><meta charset="UTF-8"><title>slide-3 — Victória L'Amour</title>
 <link rel="stylesheet" href="fontes.css"><style>
 *{margin:0;padding:0;box-sizing:border-box}
-.sl{position:relative;width:1080px;height:1350px;overflow:hidden;
-  font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.sl{position:relative;width:1080px;height:1350px;overflow:hidden;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .sl .art{position:absolute;inset:0;display:block}
 .tx{position:absolute;inset:0;padding:104px 96px 150px;display:flex;flex-direction:column}
 .tx.mid{justify-content:center;padding-top:96px}
 .eye{font:500 20px/1 Inter,sans-serif;letter-spacing:.26em;margin-bottom:52px}
 h1{font:500 66px/1.12 'Inter Tight',Inter,sans-serif;letter-spacing:-.032em}
-h1 em{font:400 72px/1.12 'Instrument Serif',Georgia,serif;font-style:italic;letter-spacing:-.012em}
+h1 em{font:400 72px/1.12 'Instrument Serif',Georgia,serif;font-style:italic;letter-spacing:-.012em;
+  -webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{font:400 27px/1.55 Inter,sans-serif;letter-spacing:-.005em;margin-top:40px;max-width:640px}
-.list{list-style:none;margin-top:56px;display:flex;flex-direction:column;gap:26px;max-width:640px}
+.list{list-style:none;margin-top:56px;display:flex;flex-direction:column;gap:26px;max-width:660px}
 .list li{font:400 27px/1.45 Inter,sans-serif;letter-spacing:-.005em;padding-left:52px;position:relative}
 .list li::before{content:"";position:absolute;left:0;top:.66em;width:30px;height:2px}
-.list.arrow li::before{width:30px;height:2px}
 .list.arrow li::after{content:"";position:absolute;left:22px;top:calc(.66em - 4px);width:10px;height:10px;
   border-top:2px solid;border-right:2px solid;transform:rotate(45deg)}
-.cta{font:400 31px/1.5 Inter,sans-serif;letter-spacing:-.01em;max-width:660px;margin-top:30px;padding-bottom:26px}
 .meta{margin-top:auto;display:flex;flex-direction:column;gap:20px}
 .meta .rule{width:110px;height:1px;background:currentColor;opacity:.35}
 .meta p{font:500 18px/1.5 Inter,sans-serif;letter-spacing:.2em}
 .meta i{font-style:normal;opacity:.45;margin:0 3px}
+.cta{font:400 31px/1.5 Inter,sans-serif;letter-spacing:-.01em;max-width:660px;margin-top:30px;padding-bottom:26px}
 .ft{position:absolute;left:96px;right:96px;bottom:56px;display:flex;justify-content:space-between;
   font:500 17px/1 Inter,sans-serif;letter-spacing:.2em}
-.ft i{font-style:normal;opacity:.4}
-.spacer{flex:1}
-
-/* fundo escuro */
-.dark{background:#150F2B;color:#F6F1EC}
-.dark .eye{color:#C3B7D8}
-.dark h1 em{background:linear-gradient(96deg,#FFB07A 0%,#FF87A6 58%,#C9A6FF 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.dark .sub,.dark .cta{color:#D6CDE6}
-.dark .meta p{color:#B0A3C9}
-.dark .list li{color:#EDE7F5}
-.dark .list li::before{background:#FF9A7A}
-.dark .list.arrow li::after{border-color:#FF9A7A}
-.dark .ft{color:#9C8FB8}
-
-/* marfim */
-.ivory{background:#FCFAF7;color:#141210}
-.ivory .eye{color:#8B7F76}
-.ivory h1 em{background:linear-gradient(96deg,#E0552C 0%,#D8407B 74%,#B14BAE 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.ivory .sub{color:#4E434B}
-.ivory .list li{color:#2A2429}
-.ivory .list li::before{background:#D8552F}
-.ivory .ft{color:#8B7F76}
-
-/* lilás-neblina */
-.mist{background:#EBE7EE;color:#171320}
-.mist .eye{color:#6B6478}
-.mist h1 em{background:linear-gradient(96deg,#DD5230 0%,#C63C86 62%,#6E4FD1 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.mist .sub{color:#5A5368}
-.mist .list li{color:#241F30}
-.mist .list li::before{background:#C63C86}
-.mist .ft{color:#6B6478}
-
-body{display:grid;place-items:center;min-height:100vh;background:#E9E6E1}</style></head>
-<body><div class="sl mist" id="slide-3"><svg class="art" viewBox="0 0 1080 1350" width="1080" height="1350" aria-hidden="true">
+.escura{background:#2B0E18;color:#F9F1EB}
+.escura .eye,.escura .ft,.escura .meta p{color:#C3A49C}
+.escura h1 em{background-image:linear-gradient(94deg,#F5B44E 0%,#EC7A38 52%,#D6404A 100%)}
+.escura .sub,.escura .cta{color:#E4CFC7}
+.escura .list li{color:#F9F1EB}
+.escura .list li::before{background:#F0913F}
+.escura .list.arrow li::after{border-color:#F0913F}
+.clara{background:#F5EEE9;color:#220F13}
+.clara .eye,.clara .ft{color:#7C6960}
+.clara h1 em{background-image:linear-gradient(94deg,#DD5F22 0%,#C42F3C 68%,#8E1D3A 100%)}
+.clara .sub{color:#5C4C46}
+.clara .list li{color:#2C1A1E}
+.clara .list li::before{background:#D4482A}
+body{display:grid;place-items:center;min-height:100vh;background:#E4DDD6}</style></head>
+<body><div class="sl clara"><svg class="art" viewBox="0 0 1080 1350" width="1080" height="1350" aria-hidden="true">
     <defs>
-      <radialGradient id="s3g" cx="93.5%" cy="14.8%" r="30%">
-        <stop offset="0%" stop-color="#FFB59A" stop-opacity="0.8"/>
-        <stop offset="60%" stop-color="#E9A0C4" stop-opacity="0.22"/>
-        <stop offset="100%" stop-color="#E9A0C4" stop-opacity="0"/>
-      </radialGradient>
-      <linearGradient id="s3v" gradientUnits="userSpaceOnUse" x1="1010" y1="200" x2="120" y2="1080">
+      <linearGradient id="s3fc" gradientUnits="userSpaceOnUse" x1="700" y1="1350" x2="1080" y2="760"><stop offset="0.0%" stop-color="#FBD9A2"/><stop offset="20.0%" stop-color="#F7B47C"/><stop offset="40.0%" stop-color="#EE8A6A"/><stop offset="60.0%" stop-color="#DE6152"/><stop offset="80.0%" stop-color="#BE3A47"/><stop offset="100.0%" stop-color="#F0E7E1"/></linearGradient>
+      <linearGradient id="s3fm" gradientUnits="userSpaceOnUse" x1="890.0" y1="1055.0"
+        x2="1175.8" y2="1239.1">
         <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
-        <stop offset="40%" stop-color="#fff" stop-opacity="0.5"/>
-        <stop offset="72%" stop-color="#fff" stop-opacity="0.07"/>
+        <stop offset="15%" stop-color="#fff" stop-opacity="0.86"/>
+        <stop offset="40%" stop-color="#fff" stop-opacity="0.44"/>
+        <stop offset="70%" stop-color="#fff" stop-opacity="0.14"/>
         <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
       </linearGradient>
-      <mask id="s3vM"><rect width="1080" height="1350" fill="url(#s3v)"/></mask>
+      <mask id="s3fM"><rect width="1080" height="1350" fill="url(#s3fm)"/></mask>
+      
+      <clipPath id="s3fP"><polygon points="700,1350 1080,760 1080,1350"/></clipPath>
     </defs>
-    <rect width="1080" height="1350" fill="url(#s3g)"/>
-    <g mask="url(#s3vM)"><circle cx="1010" cy="200" r="34" fill="none" stroke="rgb(224,85,44)"
-      stroke-width="4.2" opacity="0.930"/><circle cx="1010" cy="200" r="53.6" fill="none" stroke="rgb(221,82,55)"
-      stroke-width="4.1" opacity="0.877"/><circle cx="1010" cy="200" r="81.6" fill="none" stroke="rgb(218,79,65)"
-      stroke-width="3.99" opacity="0.824"/><circle cx="1010" cy="200" r="113.9" fill="none" stroke="rgb(215,76,76)"
-      stroke-width="3.89" opacity="0.773"/><circle cx="1010" cy="200" r="149.5" fill="none" stroke="rgb(212,73,86)"
-      stroke-width="3.78" opacity="0.723"/><circle cx="1010" cy="200" r="187.7" fill="none" stroke="rgb(209,70,97)"
-      stroke-width="3.68" opacity="0.674"/><circle cx="1010" cy="200" r="228.1" fill="none" stroke="rgb(206,67,108)"
-      stroke-width="3.58" opacity="0.626"/><circle cx="1010" cy="200" r="270.4" fill="none" stroke="rgb(203,64,118)"
-      stroke-width="3.47" opacity="0.580"/><circle cx="1010" cy="200" r="314.5" fill="none" stroke="rgb(200,61,129)"
-      stroke-width="3.37" opacity="0.535"/><circle cx="1010" cy="200" r="360.1" fill="none" stroke="rgb(193,61,139)"
-      stroke-width="3.26" opacity="0.491"/><circle cx="1010" cy="200" r="407.2" fill="none" stroke="rgb(182,64,148)"
-      stroke-width="3.16" opacity="0.448"/><circle cx="1010" cy="200" r="455.7" fill="none" stroke="rgb(171,66,157)"
-      stroke-width="3.06" opacity="0.407"/><circle cx="1010" cy="200" r="505.3" fill="none" stroke="rgb(160,68,167)"
-      stroke-width="2.95" opacity="0.367"/><circle cx="1010" cy="200" r="556.2" fill="none" stroke="rgb(149,71,176)"
-      stroke-width="2.85" opacity="0.329"/><circle cx="1010" cy="200" r="608.2" fill="none" stroke="rgb(138,73,186)"
-      stroke-width="2.74" opacity="0.293"/><circle cx="1010" cy="200" r="661.2" fill="none" stroke="rgb(127,75,195)"
-      stroke-width="2.64" opacity="0.258"/><circle cx="1010" cy="200" r="715.2" fill="none" stroke="rgb(116,78,204)"
-      stroke-width="2.54" opacity="0.224"/><circle cx="1010" cy="200" r="770.1" fill="none" stroke="rgb(108,82,210)"
-      stroke-width="2.43" opacity="0.193"/><circle cx="1010" cy="200" r="826" fill="none" stroke="rgb(104,87,212)"
-      stroke-width="2.33" opacity="0.163"/><circle cx="1010" cy="200" r="882.8" fill="none" stroke="rgb(101,93,213)"
-      stroke-width="2.22" opacity="0.136"/><circle cx="1010" cy="200" r="940.4" fill="none" stroke="rgb(97,99,215)"
-      stroke-width="2.12" opacity="0.110"/><circle cx="1010" cy="200" r="998.8" fill="none" stroke="rgb(93,104,217)"
-      stroke-width="2.02" opacity="0.088"/><circle cx="1010" cy="200" r="1058" fill="none" stroke="rgb(89,110,219)"
-      stroke-width="1.91" opacity="0.067"/><circle cx="1010" cy="200" r="1117.9" fill="none" stroke="rgb(86,116,220)"
-      stroke-width="1.81" opacity="0.050"/><circle cx="1010" cy="200" r="1178.6" fill="none" stroke="rgb(82,121,222)"
-      stroke-width="1.7" opacity="0.037"/><circle cx="1010" cy="200" r="1240" fill="none" stroke="rgb(78,127,224)"
-      stroke-width="1.6" opacity="0.030"/></g>
-    <circle cx="1010" cy="200" r="9" fill="#E0552C"/>
-  <defs><filter id="s3n"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch"/>
+    <g clip-path="url(#s3fP)"><g mask="url(#s3fM)">
+      <rect width="1080" height="1350" fill="url(#s3fc)"/>
+    </g></g>
+  <defs><filter id="s3g"><feTurbulence type="fractalNoise" baseFrequency="0.84" numOctaves="3" stitchTiles="stitch"/>
   <feColorMatrix type="saturate" values="0"/></filter></defs>
-  <rect width="1080" height="1350" filter="url(#s3n)" opacity="0.05" style="mix-blend-mode:multiply"/></svg><div class="tx mid"><p class="eye">O QUE EU OLHO NA OPERAÇÃO</p>
+  <rect width="1080" height="1350" filter="url(#s3g)" opacity="0.05" style="mix-blend-mode:multiply"/></svg><div class="tx mid"><p class="eye">O QUE EU OLHO NA OPERAÇÃO</p>
       <h1>Onde a venda<br><em>se perde</em>.</h1>
       <ul class="list">
         <li>Como cada vendedor conduz, do primeiro contato ao fechamento</li>
@@ -114,4 +65,5 @@ body{display:grid;place-items:center;min-height:100vh;background:#E9E6E1}</style
         <li>Se existe padrão de atendimento ou cada um vende do seu jeito</li>
         <li>Como está o pós-venda e a recompra</li>
       </ul>
-      <p class="sub">Observação em campo cruzada com os números que a loja já tem.</p></div><footer class="ft"><span>VICTÓRIA L'AMOUR</span><span class="pg">03 / 04</span></footer></div></body></html>
+      <p class="sub">Observação em campo cruzada com os números que a loja já tem.</p></div>
+  <footer class="ft"><span>VICTÓRIA L'AMOUR</span><span>03 / 04</span></footer></div></body></html>
