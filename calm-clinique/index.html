@@ -348,37 +348,6 @@ section[id], main[id]{ scroll-margin-top:92px; }
 .foto--quadrado{ aspect-ratio:1/1; }
 .foto--alto{ aspect-ratio:3/4; }
 
-/* Tag flutuante com apontador (padrão "BOTOX"/"RADIESSE") */
-.tag-flutuante{
-  position:absolute; z-index:2;
-  display:inline-flex; align-items:center; gap:var(--sp-1);
-  background:var(--piel-de-sol); color:var(--luz-calma);
-  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
-  padding:8px 14px; border-radius:var(--r-full);
-  box-shadow:var(--soft-1); white-space:nowrap;
-}
-.tag-flutuante::before{
-  content:""; position:absolute; width:38px; height:1px;
-  background:var(--piel-de-sol);
-}
-.tag-flutuante--a{ top:16%; right:-8px; }
-.tag-flutuante--a::before{ left:-38px; top:50%; }
-.tag-flutuante--b{ bottom:22%; left:-8px; }
-.tag-flutuante--b::before{ right:-38px; top:50%; }
-
-/* Selo circular de credencial */
-.selo{
-  position:absolute; z-index:3; right:-18px; bottom:-18px;
-  width:112px; height:112px; border-radius:var(--r-full);
-  background:var(--oliva-logo); color:var(--creme-anel);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; gap:2px;
-  border:1px solid var(--creme-anel);
-  box-shadow:var(--soft-1);
-}
-.selo__num{ font-family:var(--f-titulo); font-size:24px; line-height:1; }
-.selo__txt{ font-size:9px; letter-spacing:.16em; text-transform:uppercase; line-height:1.5; }
-
 /* Galeria da clínica — mosaico de três fotos */
 .galeria{
   display:grid; gap:var(--sp-4);
@@ -393,7 +362,7 @@ section[id], main[id]{ scroll-margin-top:92px; }
    ========================================================== */
 .hero{ padding-top:var(--sp-12); padding-bottom:var(--sp-secao); }
 .hero__grid{ display:grid; gap:var(--sp-12); align-items:center; }
-.hero__figura{ position:relative; margin-inline:8px; }
+.hero__figura{ position:relative; }
 .hero p.hero__texto{ margin-top:var(--sp-6); max-width:52ch; }
 .hero .grupo-btn{ margin-top:var(--sp-12); }
 .hero__nota{ margin-top:var(--sp-6); }
@@ -651,8 +620,6 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 }
 
 @media (min-width: 768px){
-  .selo{ width:132px; height:132px; right:-24px; bottom:-24px; }
-  .selo__num{ font-size:28px; }
   .rodape__grid{ grid-template-columns:1.4fr 1fr 1fr; }
   .passo{ grid-template-columns:120px 1fr; gap:var(--sp-6); align-items:start; }
 }
@@ -671,7 +638,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
   .hero{ padding-top:var(--sp-12); }
   .hero__grid{ grid-template-columns:1.05fr .95fr; gap:80px; }
-  .hero__figura{ order:2; margin-inline:0; }
+  .hero__figura{ order:2; }
   .hero__conteudo{ order:1; }
 
   .duas-colunas{ grid-template-columns:1fr 1fr; gap:80px; }
@@ -768,12 +735,6 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
             <strong>img/hero-amanda.jpg</strong>
             <span class="legenda">Retrato da Dra. Amanda com o paquímetro</span>
           </span>
-        </div>
-        <span class="tag-flutuante tag-flutuante--a">Planejamento</span>
-        <span class="tag-flutuante tag-flutuante--b">Naturalidade</span>
-        <div class="selo" aria-hidden="true">
-          <span class="selo__num">C</span>
-          <span class="selo__txt">Avaliação<br>individual</span>
         </div>
       </figure>
 
