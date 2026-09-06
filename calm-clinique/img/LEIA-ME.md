@@ -1,31 +1,35 @@
 # Imagens da landing page
 
-Coloque nesta pasta os arquivos abaixo, com exatamente estes nomes.
-Enquanto um arquivo não existir, a moldura exibe um placeholder na cor da
-marca — o layout não quebra.
+Os arquivos abaixo já estão em uso na página — foram selecionados e
+recortados a partir do material enviado, que está preservado em
+`originais/`.
 
-## Essenciais (fotos já existentes)
+| Arquivo | Onde aparece | Proporção | Tamanho |
+|---|---|---|---|
+| `hero-amanda.jpg` | Hero | 4:5 | 658×822 |
+| `paciente-espelho.jpg` | Seção "Dra. Amanda Santos" | 1:1 | 795×795 |
+| `proc-harmonizacao.jpg` | Card Harmonização orofacial | 1:1 | 627×627 |
+| `proc-preenchimento.jpg` | Card Preenchimento | 1:1 | 343×343 |
+| `proc-bioestimulador.jpg` | Card Bioestimuladores | 1:1 | 347×347 |
+| `proc-envelhecimento.jpg` | Card Envelhecimento facial | 1:1 | 342×342 |
+| `clinica-recepcao.jpg` | Galeria "A clínica" (coluna alta) | 4:5 | 470×587 |
+| `clinica-sala.jpg` | Galeria "A clínica" | 1:1 | 493×493 |
+| `experiencia.jpg` | Galeria "A clínica" | 1:1 | 836×836 |
 
-| Arquivo | Onde aparece | Foto |
-|---|---|---|
-| `hero-amanda.jpg` | Hero (retrato 4:5) | Dra. Amanda com o paquímetro |
-| `paciente-espelho.jpg` | Seção "Dra. Amanda Santos" (1:1) | Paciente diante do espelho |
-| `proc-harmonizacao.jpg` | Card Harmonização orofacial (1:1) | Dra. Amanda medindo o paciente |
-| `experiencia.jpg` | Seção "A clínica" (1:1) | Mesa de apoio com a xícara CALM |
+## Atenção: resolução
 
-## Opcionais (cards de procedimento)
+Todas vieram de capturas de tela, não dos arquivos originais da
+fotografia. Para o tamanho em que aparecem na página elas servem, mas
+ficam levemente suaves em telas de alta densidade — sobretudo o hero e
+os cards de 343px.
 
-Sem estes arquivos, o card mostra o nome do procedimento em tipografia da
-marca — fica intencional, não parece foto faltando.
+Se a Amanda tiver os arquivos originais do fotógrafo, vale substituir
+pelo menos `hero-amanda.jpg` (ideal: 1200–1600px no lado maior). É só
+sobrescrever o arquivo mantendo o mesmo nome — nenhuma linha de código
+muda.
 
-| Arquivo | Card |
-|---|---|
-| `proc-preenchimento.jpg` | Preenchimento |
-| `proc-bioestimulador.jpg` | Bioestimuladores |
-| `proc-envelhecimento.jpg` | Envelhecimento facial |
+## Trocar uma foto
 
-Recomendações: JPG ou WebP, lado maior de 1200–1600px, qualidade ~80.
-Os cards são quadrados (1:1) e o hero é 4:5 — recorte antes de subir.
-
-O logo **não** é um arquivo: está desenhado em SVG dentro do `index.html`
-(cores `#6E7A54` no círculo e `#EFE6D3` no anel).
+Sobrescreva o arquivo com o mesmo nome, respeitando a proporção da
+tabela. Se a proporção for diferente, o `object-fit: cover` recorta pelo
+centro — melhor recortar antes.

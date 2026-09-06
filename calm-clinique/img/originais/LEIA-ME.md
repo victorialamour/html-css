@@ -1,16 +1,14 @@
-# Pasta de triagem
+# Material bruto
 
-Suba aqui **todas** as fotos candidatas, sem se preocupar com nome,
-tamanho ou recorte. Pode ser o material bruto direto da câmera ou
-salvo do Instagram.
+As 29 capturas de tela enviadas, preservadas como estão. Delas saíram
+as 9 imagens em uso na página (veja `../LEIA-ME.md`).
 
-O que acontece depois:
+Esta pasta não é usada pelo site. Pode ser apagada quando não fizer mais
+falta — ou mantida como banco de imagens para trocas futuras.
 
-1. Eu analiso cada uma e seleciono as melhores para cada seção da página
-   (hero 4:5, retratos 1:1, cards de procedimento 1:1).
-2. Recorto na proporção certa, comprimo para a web e salvo em
-   `calm-clinique/img/` com os nomes que o `index.html` procura.
-3. Esta pasta de triagem é removida no mesmo commit, para o repositório
-   não carregar os arquivos pesados sem uso.
-
-Formatos aceitos: JPG, PNG, HEIC ou WebP.
+Não aproveitadas por decisão editorial, entre outras:
+- fotos de antes e depois — publicidade odontológica tem restrição
+  do CFO para esse tipo de imagem; confirmar com a Amanda antes de usar;
+- fotos de procedimento em que o paciente é identificável, que dependem
+  de autorização de uso de imagem assinada;
+- variações quase idênticas das caixas de produto e da recepção.
