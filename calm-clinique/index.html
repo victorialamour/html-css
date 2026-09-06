@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CALM Clinique · Amanda Santos — Harmonização Facial</title>
-<meta name="description" content="CALM Clinique — harmonização facial e estética avançada com Amanda Santos. Avaliação individual, medida e método. Agende sua avaliação.">
+<title>CALM Clinique · Dra. Amanda Santos — Harmonização Orofacial</title>
+<meta name="description" content="CALM Clinique — harmonização orofacial com a Dra. Amanda Santos, cirurgiã-dentista (CD 13249/PE). Planejamento individual, resultado natural e acompanhamento de longo prazo.">
 <meta name="theme-color" content="#F8F7F3">
 <meta name="author" content="CALM Clinique">
 <meta property="og:type" content="website">
-<meta property="og:title" content="CALM Clinique · Sua beleza, em estado de calma">
-<meta property="og:description" content="Harmonização facial com medida, técnica e escuta. Agende sua avaliação com Amanda Santos.">
+<meta property="og:title" content="CALM Clinique · A beleza não está nos padrões">
+<meta property="og:description" content="Harmonização orofacial com planejamento individual e resultado natural. Agende sua avaliação com a Dra. Amanda Santos.">
 <meta property="og:locale" content="pt_BR">
 
 <!--
@@ -19,10 +19,12 @@
   aplicados conforme especificação.
   ------------------------------------------------------------
   IMAGENS: coloque os 4 arquivos enviados na pasta ./img/
-    img/hero-amanda.jpg      → Amanda com paquímetro (retrato)
-    img/paciente-espelho.jpg → paciente diante do espelho
-    img/procedimento.jpg     → Amanda medindo o paciente
-    img/experiencia.jpg      → mesa de apoio / xícara CALM
+    img/hero-amanda.jpg        → Dra. Amanda com o paquímetro (retrato)
+    img/paciente-espelho.jpg   → paciente diante do espelho
+    img/proc-harmonizacao.jpg  → Dra. Amanda medindo o paciente
+    img/experiencia.jpg        → mesa de apoio / xícara CALM
+  (os demais img/proc-*.jpg são opcionais — sem eles o card mostra
+   o nome do procedimento em tipografia da marca)
   Enquanto os arquivos não existirem, cada moldura exibe um
   placeholder na cor da marca (nada quebra no layout).
   O LOGO está desenhado em SVG inline (sem arquivo externo).
@@ -346,6 +348,10 @@ section[id], main[id]{ scroll-margin-top:92px; }
 }
 .foto.is-sem-imagem img{ display:none; }
 .foto.is-sem-imagem .foto__aviso{ display:flex; }
+.foto__aviso--titulo{
+  font-family:var(--f-titulo); font-weight:500; letter-spacing:-0.01em;
+  font-size:var(--t-h3); color:var(--raiz-profunda); opacity:.5;
+}
 .foto--retrato{ aspect-ratio:4/5; }
 .foto--quadrado{ aspect-ratio:1/1; }
 .foto--alto{ aspect-ratio:3/4; }
@@ -532,58 +538,52 @@ section[id], main[id]{ scroll-margin-top:92px; }
 }
 
 /* ==========================================================
-   09 · FORMULÁRIO — traço inferior, sem caixa
+   09 · CANAIS DE AGENDAMENTO E MANIFESTO
    ========================================================== */
 .agendar{ background:var(--creme-anel); }
-.form{ display:grid; gap:var(--sp-4); margin-top:var(--sp-12); }
-.campo{ display:flex; flex-direction:column; gap:var(--sp-1); }
-.campo label{
-  font-size:var(--t-eyebrow); letter-spacing:.14em; text-transform:uppercase;
-  color:var(--silencio-roca);
-}
-.campo input, .campo select, .campo textarea{
-  font-family:var(--f-corpo); font-size:var(--t-corpo); color:var(--raiz-profunda);
-  background:transparent; border:0; border-bottom:1px solid var(--tierra-serena);
-  border-radius:0; padding:12px 0; min-height:48px; width:100%;
-  transition:border-color var(--transicao);
-  appearance:none;
-}
-.campo textarea{ min-height:96px; resize:vertical; line-height:1.8; }
-.campo select{
-  background-image:linear-gradient(45deg,transparent 50%,var(--silencio-roca) 50%),
-                   linear-gradient(135deg,var(--silencio-roca) 50%,transparent 50%);
-  background-position:calc(100% - 14px) 22px, calc(100% - 9px) 22px;
-  background-size:5px 5px, 5px 5px; background-repeat:no-repeat;
-  padding-right:28px; cursor:pointer;
-}
-.campo input:focus, .campo select:focus, .campo textarea:focus{
-  outline:none; border-bottom-color:var(--piel-de-sol); border-bottom-width:2px;
-}
-.campo input::placeholder, .campo textarea::placeholder{ color:var(--tierra-serena); }
-.campo--erro input, .campo--erro select, .campo--erro textarea{ border-bottom-color:#A6432F; }
-.campo__erro{ font-size:var(--t-legenda); color:#A6432F; min-height:0; }
 
-.consentimento{
-  display:flex; gap:var(--sp-4); align-items:flex-start;
-  font-size:var(--t-legenda); line-height:1.85; color:var(--silencio-roca);
-  margin-top:var(--sp-2);
+.manifesto{ background:var(--creme-anel); text-align:center; }
+.manifesto blockquote{
+  margin:0 auto; max-width:22ch;
+  font-family:var(--f-titulo); font-weight:500;
+  font-size:var(--t-h2); line-height:1.1;
 }
-.consentimento input{
-  flex:none; width:22px; height:22px; margin-top:6px; accent-color:var(--piel-de-sol);
+.manifesto cite{
+  display:block; margin-top:var(--sp-12);
+  font-style:normal; font-size:var(--t-eyebrow);
+  letter-spacing:.14em; text-transform:uppercase; color:var(--silencio-roca);
 }
-.form__acoes{ display:flex; flex-wrap:wrap; gap:var(--sp-4); margin-top:var(--sp-2); }
-.form__status{
-  font-size:var(--t-legenda); line-height:1.85; color:var(--silencio-roca);
-  border-left:2px solid var(--piel-de-sol); padding-left:var(--sp-4);
-}
-.form__status:empty{ display:none; }
 
-.contato-lista{ list-style:none; margin:var(--sp-12) 0 0; padding:0; display:grid; gap:var(--sp-6); }
-.contato-lista dt, .contato-item__rotulo{
+.canais{ list-style:none; margin:var(--sp-12) 0 0; padding:0; display:grid; gap:0; }
+.canal{
+  display:flex; align-items:flex-start; gap:var(--sp-4);
+  padding-block:var(--sp-6);
+  border-top:1px solid rgba(168,162,148,.55);
+}
+.canal:last-child{ border-bottom:1px solid rgba(168,162,148,.55); }
+.canal__icone{
+  flex:none; width:44px; height:44px; border-radius:var(--r-full);
+  background:var(--luz-calma); color:var(--piel-de-sol);
+  display:flex; align-items:center; justify-content:center;
+}
+.canal__icone svg{ width:20px; height:20px; }
+.canal__rotulo{
   font-size:var(--t-eyebrow); letter-spacing:.14em; text-transform:uppercase;
   color:var(--silencio-roca); margin-bottom:var(--sp-1);
 }
-.contato-item__valor{ font-size:var(--t-legenda); line-height:1.85; }
+.canal__valor{ font-size:var(--t-legenda); line-height:1.85; }
+
+.credencial{
+  margin-top:var(--sp-12); padding:var(--sp-6);
+  border:1px solid rgba(168,162,148,.55); border-radius:var(--r-card);
+  display:flex; gap:var(--sp-4); align-items:center;
+}
+.credencial__selo{
+  flex:none; width:56px; height:56px; border-radius:var(--r-full);
+  background:var(--oliva-logo); color:var(--creme-anel);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--f-titulo); font-size:20px;
+}
 
 /* ==========================================================
    10 · RODAPÉ
@@ -646,7 +646,6 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   .grade-depoimentos{ grid-template-columns:repeat(2,1fr); }
   .faixa__grid{ grid-template-columns:repeat(3,1fr); gap:var(--sp-6); }
   .contato-lista{ grid-template-columns:repeat(2,1fr); }
-  .form__linha{ display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4); }
   .marca__texto{ display:block; }
 }
 
@@ -677,7 +676,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   .duas-colunas{ grid-template-columns:1fr 1fr; gap:80px; }
   .duas-colunas--invertida .duas-colunas__figura{ order:2; }
 
-  .grade-procedimentos{ grid-template-columns:repeat(3,1fr); gap:var(--sp-12) var(--sp-6); }
+  .grade-procedimentos{ grid-template-columns:repeat(4,1fr); gap:var(--sp-12) var(--sp-6); }
   .grade-depoimentos{ grid-template-columns:repeat(3,1fr); }
   .agendar__grid{ display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
   .cabecalho__barra{ min-height:88px; }
@@ -689,7 +688,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
 /* Impressão */
 @media print{
-  .cabecalho, .barra-fixa, .form__acoes{ display:none; }
+  .cabecalho, .barra-fixa{ display:none; }
   body{ padding:0; background:#fff; }
 }
 </style>
@@ -708,6 +707,20 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
     <text x="100" y="128" text-anchor="middle" fill="#FFFFFF"
           font-family="'IBM Plex Mono', monospace" font-size="14" letter-spacing="6.5">CLINIQUE</text>
   </symbol>
+  <symbol id="ic-instagram" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor"/>
+  </symbol>
+  <symbol id="ic-agenda" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="ic-selo" viewBox="0 0 24 24">
+    <path d="M12 3l2.3 1.6 2.8-.2.9 2.7 2.3 1.6-1 2.6 1 2.6-2.3 1.6-.9 2.7-2.8-.2L12 21l-2.3-1.6-2.8.2-.9-2.7L3.7 15.3l1-2.6-1-2.6L6 8.5l.9-2.7 2.8.2z"
+          fill="none" stroke="currentColor" stroke-width="1.4"/>
+    <path d="M9 12.3l2 2 4-4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
 </svg>
 
 <!-- ===================== CABEÇALHO ===================== -->
@@ -715,7 +728,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   <div class="container cabecalho__barra">
     <a class="marca" href="#topo" aria-label="CALM Clinique — início">
       <svg class="marca__logo" aria-hidden="true" focusable="false"><use href="#logo-calm"></use></svg>
-      <span class="marca__texto">Amanda Santos<br>Harmonização Facial</span>
+      <span class="marca__texto">Dra. Amanda Santos<br>Harmonização Orofacial</span>
     </a>
 
     <nav class="nav" id="menu-principal" aria-label="Navegação principal">
@@ -723,13 +736,13 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         <li><a class="nav__link" href="#sobre">Sobre</a></li>
         <li><a class="nav__link" href="#procedimentos">Procedimentos</a></li>
         <li><a class="nav__link" href="#metodo">Método</a></li>
-        <li><a class="nav__link" href="#experiencia">Experiência</a></li>
+        <li><a class="nav__link" href="#experiencia">A clínica</a></li>
         <li><a class="nav__link" href="#faq">Dúvidas</a></li>
       </ul>
     </nav>
 
     <div class="cabecalho__acoes">
-      <a class="btn btn--primario" href="#agendar">Agendar avaliação</a>
+      <a class="btn btn--primario" href="https://bit.ly/calmclinique" target="_blank" rel="noopener">Agendar avaliação</a>
       <button class="menu-btn" type="button" id="menu-btn"
               aria-expanded="false" aria-controls="menu-principal">
         <span></span><span></span><span></span>
@@ -748,36 +761,36 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
       <figure class="hero__figura revelar">
         <div class="foto foto--retrato">
           <img src="img/hero-amanda.jpg"
-               alt="Amanda Santos, biomédica esteta da CALM Clinique, segurando um paquímetro digital junto ao rosto durante a análise de proporções faciais."
+               alt="Dra. Amanda Santos, cirurgiã-dentista da CALM Clinique, segurando um paquímetro digital junto ao rosto durante a análise de proporções faciais."
                width="1200" height="1500" fetchpriority="high" decoding="async">
           <span class="foto__aviso" aria-hidden="true">
             <strong>img/hero-amanda.jpg</strong>
-            <span class="legenda">Retrato de Amanda com o paquímetro</span>
+            <span class="legenda">Retrato da Dra. Amanda com o paquímetro</span>
           </span>
         </div>
-        <span class="tag-flutuante tag-flutuante--a">Toxina</span>
-        <span class="tag-flutuante tag-flutuante--b">Preenchimento</span>
+        <span class="tag-flutuante tag-flutuante--a">Planejamento</span>
+        <span class="tag-flutuante tag-flutuante--b">Naturalidade</span>
         <div class="selo" aria-hidden="true">
           <span class="selo__num">C</span>
-          <span class="selo__txt">Avaliação<br>por medida</span>
+          <span class="selo__txt">Avaliação<br>individual</span>
         </div>
       </figure>
 
       <div class="hero__conteudo revelar">
-        <p class="eyebrow">Harmonização facial · Estética avançada</p>
-        <h1 id="hero-titulo">Sua beleza, em estado de <span class="acento">calma</span>.</h1>
+        <p class="eyebrow">Harmonização orofacial · Dra. Amanda Santos</p>
+        <h1 id="hero-titulo">A beleza não está nos <span class="acento">padrões</span>.</h1>
         <p class="hero__texto">
-          Na CALM Clinique cada rosto é medido antes de ser tocado. Amanda Santos
-          conduz a avaliação com paquímetro, escuta e critério — para devolver
-          equilíbrio sem apagar o que já é seu.
+          Na CALM Clinique o plano nasce do seu rosto — não de um modelo pronto.
+          Avaliação individual, resultado natural e acompanhamento que continua
+          muito depois da aplicação.
         </p>
         <div class="grupo-btn">
-          <a class="btn btn--primario" href="#agendar">Agendar avaliação</a>
+          <a class="btn btn--primario" href="https://bit.ly/calmclinique" target="_blank" rel="noopener">Agendar avaliação</a>
           <a class="btn btn--secundario" href="#procedimentos">Ver procedimentos</a>
         </div>
         <p class="legenda hero__nota">
-          Atendimento individual, com hora marcada.<br>
-          Avaliação de 60 minutos — sem compromisso de procedimento no mesmo dia.
+          Dra. Amanda Santos · Cirurgiã-dentista · CD 13249/PE<br>
+          Atendimento individual, com hora marcada.
         </p>
       </div>
 
@@ -789,18 +802,18 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
     <div class="container faixa__grid">
       <div class="faixa__item revelar">
         <span class="faixa__num">01</span>
-        <h3>Medida antes da agulha</h3>
-        <p class="legenda">Análise de proporções documentada — o plano nasce do seu rosto, não de um pacote pronto.</p>
+        <h3>Planejamento personalizado</h3>
+        <p class="legenda">Nenhum protocolo de prateleira. O que entra no plano depende do seu rosto, da sua rotina e do que você quer preservar.</p>
       </div>
       <div class="faixa__item revelar">
         <span class="faixa__num">02</span>
-        <h3>Resultado que não denuncia</h3>
-        <p class="legenda">Doses conservadoras e retorno para ajuste fino. Naturalidade é o critério, não o efeito colateral.</p>
+        <h3>Tecnologia para o conforto</h3>
+        <p class="legenda">Técnica e equipamento escolhidos para reduzir dor, edema e tempo de recuperação — segurança em cada etapa do procedimento.</p>
       </div>
       <div class="faixa__item revelar">
         <span class="faixa__num">03</span>
-        <h3>Acompanhamento depois</h3>
-        <p class="legenda">Retorno incluído em todos os protocolos, com canal direto para dúvidas no pós-procedimento.</p>
+        <h3>Acompanhamento de longo prazo</h3>
+        <p class="legenda">A relação não termina na cadeira. O envelhecimento facial é gerenciado ao longo dos anos, com retornos e ajustes.</p>
       </div>
     </div>
   </section>
@@ -823,22 +836,25 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
       <div class="revelar">
         <p class="eyebrow">Quem conduz</p>
-        <h2 id="sobre-titulo">Amanda Santos</h2>
+        <h2 id="sobre-titulo">Dra. Amanda Santos</h2>
         <p class="texto-longo" style="margin-top:var(--sp-6)">
-          Formada em estética avançada e dedicada à harmonização facial, Amanda
-          construiu um jeito próprio de atender: mede, explica e só então propõe.
+          Cirurgiã-dentista dedicada à harmonização orofacial, Amanda fundou a
+          CALM Clinique em torno de uma ideia simples: beleza não se copia de
+          um padrão, se planeja a partir de quem você já é.
         </p>
         <p class="texto-longo" style="margin-top:var(--sp-4)">
-          A consulta começa por uma pergunta simples — o que incomoda você quando
-          se olha no espelho? A partir daí vem a análise das proporções, a
-          fotografia clínica e um plano escrito, com o que fazer agora e o que
-          pode esperar.
+          A consulta começa pela conversa e pela análise das proporções do seu
+          rosto. Só então vem a indicação — sempre com a medida certa, nunca
+          com excesso. Nem todo procedimento da moda entra no plano: alguns
+          simplesmente não são a melhor escolha para o seu caso, e isso é dito
+          com todas as letras.
         </p>
         <span class="assinatura" aria-hidden="true">Amanda</span>
         <ul class="lista-marcada">
-          <li>Avaliação com paquímetro digital e registro fotográfico padronizado</li>
-          <li>Produtos com registro na Anvisa, aplicados em ambiente próprio</li>
-          <li>Plano por escrito, com valores fechados antes de qualquer aplicação</li>
+          <li>Cirurgiã-dentista · CD 13249/PE — responsável técnica da CALM Clinique</li>
+          <li>Planejamento individual com análise de proporções e registro fotográfico</li>
+          <li>Protocolos de segurança e produtos com registro na Anvisa</li>
+          <li>Acompanhamento contínuo — pacientes atendidos ano após ano</li>
         </ul>
       </div>
 
@@ -850,34 +866,33 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
     <div class="container">
 
       <div class="cabecalho-secao">
-        <p class="eyebrow">O que fazemos</p>
-        <h2 id="proc-titulo">Procedimentos</h2>
+        <p class="eyebrow">Áreas de atuação</p>
+        <h2 id="proc-titulo">O que fazemos</h2>
         <p class="texto-longo">
-          Nenhum protocolo é vendido por telefone. A indicação abaixo é sempre
-          confirmada — ou descartada — na avaliação presencial.
+          Nada é indicado por telefone ou pelo direct. O que está aqui é ponto de
+          partida — a indicação real vem da avaliação presencial.
         </p>
       </div>
 
-      <!-- Substitua as imagens dos cards por fotos reais em ./img/ -->
       <div class="grade-procedimentos">
 
         <article class="card revelar">
           <div class="card__midia foto">
-            <img src="img/proc-toxina.jpg" alt="Aplicação de toxina botulínica na região da testa." width="800" height="800" loading="lazy" decoding="async">
-            <span class="foto__aviso" aria-hidden="true"><strong>img/proc-toxina.jpg</strong></span>
-            <span class="card__tag">Expressão</span>
+            <img src="img/proc-harmonizacao.jpg" alt="Dra. Amanda Santos medindo o rosto de um paciente com paquímetro durante o planejamento da harmonização orofacial." width="800" height="800" loading="lazy" decoding="async">
+            <span class="foto__aviso foto__aviso--titulo" aria-hidden="true">Harmonização</span>
+            <span class="card__tag">Proporção</span>
             <span class="card__seta" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M19 5H9M19 5v10"/></svg>
             </span>
           </div>
-          <h3><a class="card__link" href="#agendar">Toxina botulínica</a></h3>
-          <p class="card__desc">Suaviza linhas de expressão preservando o movimento. Doses ajustadas à força de cada músculo.</p>
+          <h3><a class="card__link" href="#agendar">Harmonização orofacial</a></h3>
+          <p class="card__desc">Planejamento do conjunto do rosto, em etapas. Proporção e equilíbrio — sem apagar o que é seu.</p>
         </article>
 
         <article class="card revelar">
           <div class="card__midia foto">
-            <img src="img/proc-preenchimento.jpg" alt="Preenchimento facial com ácido hialurônico em consultório." width="800" height="800" loading="lazy" decoding="async">
-            <span class="foto__aviso" aria-hidden="true"><strong>img/proc-preenchimento.jpg</strong></span>
+            <img src="img/proc-preenchimento.jpg" alt="Preenchimento facial com ácido hialurônico realizado em consultório." width="800" height="800" loading="lazy" decoding="async">
+            <span class="foto__aviso foto__aviso--titulo" aria-hidden="true">Preenchimento</span>
             <span class="card__tag">Volume</span>
             <span class="card__seta" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M19 5H9M19 5v10"/></svg>
@@ -889,54 +904,28 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
         <article class="card revelar">
           <div class="card__midia foto">
-            <img src="img/proc-bioestimulador.jpg" alt="Aplicação de bioestimulador de colágeno no terço médio da face." width="800" height="800" loading="lazy" decoding="async">
-            <span class="foto__aviso" aria-hidden="true"><strong>img/proc-bioestimulador.jpg</strong></span>
+            <img src="img/proc-bioestimulador.jpg" alt="Aplicação de bioestimulador de colágeno na face." width="800" height="800" loading="lazy" decoding="async">
+            <span class="foto__aviso foto__aviso--titulo" aria-hidden="true">Bioestimuladores</span>
             <span class="card__tag">Firmeza</span>
             <span class="card__seta" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M19 5H9M19 5v10"/></svg>
             </span>
           </div>
           <h3><a class="card__link" href="#agendar">Bioestimuladores</a></h3>
-          <p class="card__desc">Colágeno estimulado do próprio corpo. Resultado que aparece devagar — e por isso convence.</p>
+          <p class="card__desc">Colágeno estimulado pelo próprio corpo. Resultado que aparece devagar — e por isso convence.</p>
         </article>
 
         <article class="card revelar">
           <div class="card__midia foto">
-            <img src="img/proc-skinbooster.jpg" alt="Procedimento de hidratação profunda da pele com skinbooster." width="800" height="800" loading="lazy" decoding="async">
-            <span class="foto__aviso" aria-hidden="true"><strong>img/proc-skinbooster.jpg</strong></span>
-            <span class="card__tag">Pele</span>
+            <img src="img/proc-envelhecimento.jpg" alt="Consulta de acompanhamento do envelhecimento facial na CALM Clinique." width="800" height="800" loading="lazy" decoding="async">
+            <span class="foto__aviso foto__aviso--titulo" aria-hidden="true">Longo prazo</span>
+            <span class="card__tag">Continuidade</span>
             <span class="card__seta" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M19 5H9M19 5v10"/></svg>
             </span>
           </div>
-          <h3><a class="card__link" href="#agendar">Skinbooster</a></h3>
-          <p class="card__desc">Hidratação profunda para textura, viço e poros. Indicado antes de datas importantes.</p>
-        </article>
-
-        <article class="card revelar">
-          <div class="card__midia foto">
-            <img src="img/proc-harmonizacao.jpg" alt="Análise de proporções faciais para harmonização completa." width="800" height="800" loading="lazy" decoding="async">
-            <span class="foto__aviso" aria-hidden="true"><strong>img/proc-harmonizacao.jpg</strong></span>
-            <span class="card__tag">Proporção</span>
-            <span class="card__seta" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M19 5H9M19 5v10"/></svg>
-            </span>
-          </div>
-          <h3><a class="card__link" href="#agendar">Harmonização completa</a></h3>
-          <p class="card__desc">Plano em etapas, conduzido ao longo de meses. Para quem quer o conjunto, não um detalhe.</p>
-        </article>
-
-        <article class="card revelar">
-          <div class="card__midia foto">
-            <img src="img/proc-masculino.jpg" alt="Atendimento estético masculino na CALM Clinique." width="800" height="800" loading="lazy" decoding="async">
-            <span class="foto__aviso" aria-hidden="true"><strong>img/proc-masculino.jpg</strong></span>
-            <span class="card__tag">Masculino</span>
-            <span class="card__seta" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 19 19 5M19 5H9M19 5v10"/></svg>
-            </span>
-          </div>
-          <h3><a class="card__link" href="#agendar">Protocolo masculino</a></h3>
-          <p class="card__desc">Mandíbula, olhar cansado e linhas de expressão — com a força e o traço que o rosto masculino pede.</p>
+          <h3><a class="card__link" href="#agendar">Envelhecimento facial</a></h3>
+          <p class="card__desc">Gerenciamento ao longo dos anos, com retornos programados. Envelhecer bem também se planeja.</p>
         </article>
 
       </div>
@@ -950,7 +939,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         <p class="eyebrow">Como funciona</p>
         <h2 id="metodo-titulo">Quatro passos, nessa ordem</h2>
         <p class="texto-longo">
-          O mesmo caminho para todo mundo — o que muda é o que a sua medida revela.
+          O mesmo caminho para todo mundo — o que muda é o que a sua avaliação revela.
         </p>
       </div>
 
@@ -959,28 +948,28 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
           <span class="passo__num">Passo 01</span>
           <div>
             <h3>Escuta</h3>
-            <p class="passo__desc">Vinte minutos só para entender o que você quer mudar — e o que não quer perder. Nada é indicado antes dessa conversa.</p>
+            <p class="passo__desc">A conversa vem antes de qualquer indicação: o que incomoda você, o que já tentou e o que não quer perder do seu rosto.</p>
           </div>
         </li>
         <li class="passo revelar">
           <span class="passo__num">Passo 02</span>
           <div>
-            <h3>Medida</h3>
-            <p class="passo__desc">Análise de proporções com paquímetro digital e registro fotográfico padronizado. É o que transforma opinião em critério.</p>
+            <h3>Planejamento</h3>
+            <p class="passo__desc">Análise das proporções e registro fotográfico padronizado. O plano é individual, escrito e explicado etapa por etapa — inclusive o que não vale a pena fazer.</p>
           </div>
         </li>
         <li class="passo revelar">
           <span class="passo__num">Passo 03</span>
           <div>
-            <h3>Protocolo</h3>
-            <p class="passo__desc">Você recebe o plano por escrito: o que fazer agora, o que pode esperar, quanto custa cada etapa. Sem pressa para decidir.</p>
+            <h3>Procedimento</h3>
+            <p class="passo__desc">Protocolos de segurança e tecnologia escolhida para o seu conforto. Você entende o que está sendo feito enquanto é feito.</p>
           </div>
         </li>
         <li class="passo revelar">
           <span class="passo__num">Passo 04</span>
           <div>
             <h3>Acompanhamento</h3>
-            <p class="passo__desc">Retorno para ajuste fino e canal direto no pós-procedimento. O resultado se confirma nas semanas seguintes, não na saída da sala.</p>
+            <p class="passo__desc">Retorno para ajuste fino e canal aberto no pós. A partir daí, o envelhecimento facial passa a ser acompanhado ao longo do tempo.</p>
           </div>
         </li>
       </ol>
@@ -1005,53 +994,55 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
       <div class="revelar">
         <p class="eyebrow">A clínica</p>
-        <h2 id="exp-titulo">Uma hora que é <span class="acento">sua</span></h2>
+        <h2 id="exp-titulo">Cuidado do início ao <span class="acento">fim</span></h2>
         <p class="texto-longo" style="margin-top:var(--sp-6)">
-          Um atendimento por vez, sem sala de espera cheia. Você chega, senta,
-          toma um café e conversa — o procedimento é a última parte da visita,
-          não a primeira.
+          Um atendimento por vez, com hora marcada e tempo de sobra. Você chega,
+          senta, toma um café e conversa — o procedimento é a última parte da
+          visita, não a primeira.
         </p>
         <ul class="lista-marcada">
-          <li>Agenda com intervalo real entre pacientes — sem espera e sem cruzar com outro atendimento</li>
-          <li>Café, água e um doce servidos antes da consulta</li>
-          <li>Ambiente climatizado, com acessibilidade e estacionamento no local</li>
+          <li>Agenda individual, com intervalo real entre pacientes</li>
+          <li>Café e água servidos antes da consulta</li>
+          <li>Orientações de pós-procedimento por escrito, com canal aberto para dúvidas</li>
         </ul>
         <div class="grupo-btn" style="margin-top:var(--sp-12)">
-          <a class="btn btn--secundario" href="#agendar">Conhecer a clínica</a>
+          <a class="btn btn--secundario" href="https://instagram.com/calmclinique" target="_blank" rel="noopener">Ver a clínica no Instagram</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ===================== DEPOIMENTOS ===================== -->
-  <!-- SUBSTITUIR pelos depoimentos reais de pacientes antes de publicar -->
-  <section class="secao depoimentos" aria-labelledby="dep-titulo">
+  <!-- ===================== MANIFESTO ===================== -->
+  <section class="secao manifesto" aria-labelledby="manifesto-titulo">
     <div class="container">
-      <div class="cabecalho-secao cabecalho-secao--centro">
-        <p class="eyebrow eyebrow--centro">Quem já passou por aqui</p>
-        <h2 id="dep-titulo">Palavras de pacientes</h2>
-      </div>
-
-      <div class="grade-depoimentos">
-        <figure class="depoimento revelar">
-          <p class="estrelas" aria-label="Cinco de cinco estrelas">★★★★★</p>
-          <blockquote>“Cheguei querendo mexer em tudo. Saí com um plano de três etapas e a certeza de que ninguém ia notar — notaram que eu estava descansada.”</blockquote>
-          <figcaption><span class="avatar" aria-hidden="true">M</span> Mariana R. · Toxina + skinbooster</figcaption>
-        </figure>
-        <figure class="depoimento revelar">
-          <p class="estrelas" aria-label="Cinco de cinco estrelas">★★★★★</p>
-          <blockquote>“A parte da medida me ganhou. É a primeira vez que alguém me explica por que faz, e não só o que faz.”</blockquote>
-          <figcaption><span class="avatar" aria-hidden="true">C</span> Carla D. · Harmonização completa</figcaption>
-        </figure>
-        <figure class="depoimento revelar">
-          <p class="estrelas" aria-label="Cinco de cinco estrelas">★★★★★</p>
-          <blockquote>“Sou homem e tinha medo de sair com cara de feito. A Amanda foi conservadora e o retorno ajustou o resto.”</blockquote>
-          <figcaption><span class="avatar" aria-hidden="true">R</span> Rafael T. · Protocolo masculino</figcaption>
-        </figure>
-      </div>
+      <h2 class="sr-only" id="manifesto-titulo">Posicionamento da CALM Clinique</h2>
+      <blockquote class="revelar">“A beleza não está nos padrões.”</blockquote>
+      <cite class="revelar">Dra. Amanda Santos · CALM Clinique</cite>
     </div>
   </section>
+
+  <!--
+    ESPAÇO PARA DEPOIMENTOS REAIS
+    Quando tiver as autorizações dos pacientes, cole o bloco abaixo aqui
+    (o CSS já está pronto: .depoimentos, .grade-depoimentos, .depoimento):
+
+    <section class="secao depoimentos" aria-labelledby="dep-titulo">
+      <div class="container">
+        <div class="cabecalho-secao cabecalho-secao--centro">
+          <p class="eyebrow eyebrow--centro">Quem já passou por aqui</p>
+          <h2 id="dep-titulo">Palavras de pacientes</h2>
+        </div>
+        <div class="grade-depoimentos">
+          <figure class="depoimento revelar">
+            <p class="estrelas" aria-label="Cinco de cinco estrelas">★★★★★</p>
+            <blockquote>“Depoimento real do paciente.”</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">M</span> Nome · Procedimento</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  -->
 
   <!-- ===================== FAQ ===================== -->
   <section class="secao" id="faq" aria-labelledby="faq-titulo">
@@ -1066,17 +1057,29 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
           <summary class="faq__pergunta">A avaliação já inclui o procedimento?
             <span class="faq__mais" aria-hidden="true"></span></summary>
           <div class="faq__resposta">
-            <p>Não. A avaliação é uma consulta à parte: medida, fotografia e plano por escrito.
-            Se você quiser aplicar no mesmo dia e houver indicação, é possível — mas nunca é condição.</p>
+            <p>Não. A avaliação é uma consulta à parte: conversa, análise das proporções
+            e plano individual. Se houver indicação e você quiser aplicar no mesmo dia,
+            é possível — mas nunca é condição.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__pergunta">Dói? Preciso de anestesia?
+          <summary class="faq__pergunta">Vou ficar com cara de “feita”?
             <span class="faq__mais" aria-hidden="true"></span></summary>
           <div class="faq__resposta">
-            <p>Usamos anestésico tópico antes de todos os procedimentos e, quando indicado,
-            anestesia local. A maioria dos pacientes descreve como um desconforto breve.</p>
+            <p>Esse é justamente o critério do consultório. Trabalhamos com doses
+            conservadoras e resultado natural — e quando um procedimento da moda não
+            é a melhor escolha para o seu caso, ele não entra no plano.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__pergunta">Dói? Como funciona o conforto durante o procedimento?
+            <span class="faq__mais" aria-hidden="true"></span></summary>
+          <div class="faq__resposta">
+            <p>Usamos anestésico tópico e, quando indicado, anestesia local — além de
+            técnica e equipamento escolhidos para reduzir dor e edema. A maioria dos
+            pacientes descreve como um desconforto breve.</p>
           </div>
         </details>
 
@@ -1084,19 +1087,9 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
           <summary class="faq__pergunta">Quanto tempo dura o resultado?
             <span class="faq__mais" aria-hidden="true"></span></summary>
           <div class="faq__resposta">
-            <p>Depende do produto e do seu metabolismo: toxina costuma durar de 4 a 6 meses,
-            preenchimentos de 12 a 18 meses e bioestimuladores até 24 meses. O plano por escrito
-            traz a estimativa do seu caso.</p>
-          </div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__pergunta">Vou ficar com o rosto marcado ou inchado?
-            <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
-            <p>Pode haver inchaço leve e pequenos hematomas nas primeiras 48 horas, que se
-            resolvem sozinhos. Você recebe orientações por escrito e um canal direto para
-            qualquer dúvida no pós.</p>
+            <p>Depende do produto, da região e do seu metabolismo. A estimativa do seu
+            caso entra no plano por escrito, junto com o calendário de retornos —
+            porque o acompanhamento é o que mantém o resultado ao longo dos anos.</p>
           </div>
         </details>
 
@@ -1105,17 +1098,17 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
             <span class="faq__mais" aria-hidden="true"></span></summary>
           <div class="faq__resposta">
             <p>Não existe idade — existe indicação. Atendemos a partir dos 18 anos e o
-            critério é sempre o que a análise mostra, não o número no documento.</p>
+            critério é sempre o que a avaliação mostra.</p>
           </div>
         </details>
 
         <details class="faq__item">
-          <summary class="faq__pergunta">Como funcionam pagamento e agenda?
+          <summary class="faq__pergunta">Como faço para agendar?
             <span class="faq__mais" aria-hidden="true"></span></summary>
           <div class="faq__resposta">
-            <p>Pix, dinheiro e cartão em até 12x. Os valores são fechados antes de qualquer
-            aplicação. A agenda é individual, com hora marcada — remarcações com 24 horas de
-            antecedência não têm custo.</p>
+            <p>Pelo link oficial de agendamento da clínica —
+            <a href="https://bit.ly/calmclinique" target="_blank" rel="noopener">bit.ly/calmclinique</a> —
+            ou pelo direct do <a href="https://instagram.com/calmclinique" target="_blank" rel="noopener">@calmclinique</a>.</p>
           </div>
         </details>
       </div>
@@ -1128,86 +1121,52 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
       <div class="revelar">
         <p class="eyebrow">Agende sua avaliação</p>
-        <h2 id="agendar-titulo">Comece pela <span class="acento">conversa</span></h2>
+        <h2 id="agendar-titulo">O primeiro passo é a <span class="acento">conversa</span></h2>
         <p class="texto-longo" style="margin-top:var(--sp-6)">
-          Preencha os campos e a mensagem abre pronta no WhatsApp da clínica.
-          Respondemos em horário comercial, normalmente no mesmo dia.
+          A avaliação é individual e sem compromisso de procedimento no mesmo dia.
+          Você sai dela sabendo o que dá para fazer, em que ordem — e o que é
+          melhor não fazer.
         </p>
-
-        <div class="contato-lista">
-          <div>
-            <p class="contato-item__rotulo">Endereço</p>
-            <p class="contato-item__valor">Rua Exemplo, 000 — Sala 00<br>Bairro · Cidade — UF</p>
-          </div>
-          <div>
-            <p class="contato-item__rotulo">Atendimento</p>
-            <p class="contato-item__valor">Seg a Sex · 9h às 19h<br>Sáb · 9h às 13h</p>
-          </div>
-          <div>
-            <p class="contato-item__rotulo">WhatsApp</p>
-            <p class="contato-item__valor"><a href="https://wa.me/5511900000000">(11) 90000-0000</a></p>
-          </div>
-          <div>
-            <p class="contato-item__rotulo">E-mail</p>
-            <p class="contato-item__valor"><a href="mailto:contato@calmclinique.com.br">contato@calmclinique.com.br</a></p>
-          </div>
+        <div class="grupo-btn" style="margin-top:var(--sp-12)">
+          <a class="btn btn--primario" href="https://bit.ly/calmclinique" target="_blank" rel="noopener">Agendar avaliação</a>
+          <a class="btn btn--secundario" href="https://instagram.com/calmclinique" target="_blank" rel="noopener">Falar pelo direct</a>
         </div>
       </div>
 
       <div class="revelar">
-        <form class="form" id="form-agendamento" novalidate>
-          <div class="form__linha">
-            <div class="campo">
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" autocomplete="name"
-                     placeholder="Como podemos te chamar" required>
-              <span class="campo__erro" data-erro-de="nome" aria-live="polite"></span>
+        <ul class="canais">
+          <li class="canal">
+            <span class="canal__icone" aria-hidden="true"><svg><use href="#ic-agenda"></use></svg></span>
+            <div>
+              <p class="canal__rotulo">Agendamento oficial</p>
+              <p class="canal__valor"><a href="https://bit.ly/calmclinique" target="_blank" rel="noopener">bit.ly/calmclinique</a></p>
             </div>
-            <div class="campo">
-              <label for="telefone">WhatsApp</label>
-              <input type="tel" id="telefone" name="telefone" autocomplete="tel"
-                     inputmode="tel" placeholder="(00) 00000-0000" required>
-              <span class="campo__erro" data-erro-de="telefone" aria-live="polite"></span>
+          </li>
+          <li class="canal">
+            <span class="canal__icone" aria-hidden="true"><svg><use href="#ic-instagram"></use></svg></span>
+            <div>
+              <p class="canal__rotulo">Instagram da clínica</p>
+              <p class="canal__valor"><a href="https://instagram.com/calmclinique" target="_blank" rel="noopener">@calmclinique</a></p>
             </div>
-          </div>
+          </li>
+          <li class="canal">
+            <span class="canal__icone" aria-hidden="true"><svg><use href="#ic-instagram"></use></svg></span>
+            <div>
+              <p class="canal__rotulo">Instagram da Dra. Amanda</p>
+              <p class="canal__valor"><a href="https://instagram.com/dra.amandapsantos" target="_blank" rel="noopener">@dra.amandapsantos</a></p>
+            </div>
+          </li>
+          <!-- Quando tiver endereço, telefone e horários, acrescente um <li class="canal"> aqui. -->
+        </ul>
 
-          <div class="campo">
-            <label for="procedimento">Interesse</label>
-            <select id="procedimento" name="procedimento">
-              <option value="Avaliação geral">Avaliação geral</option>
-              <option value="Toxina botulínica">Toxina botulínica</option>
-              <option value="Preenchimento">Preenchimento</option>
-              <option value="Bioestimuladores">Bioestimuladores</option>
-              <option value="Skinbooster">Skinbooster</option>
-              <option value="Harmonização completa">Harmonização completa</option>
-              <option value="Protocolo masculino">Protocolo masculino</option>
-            </select>
-          </div>
-
-          <div class="campo">
-            <label for="mensagem">O que te incomoda hoje? <span class="legenda">(opcional)</span></label>
-            <textarea id="mensagem" name="mensagem" rows="3"
-                      placeholder="Conte em poucas linhas — ajuda a preparar sua avaliação."></textarea>
-          </div>
-
-          <label class="consentimento" for="consentimento">
-            <input type="checkbox" id="consentimento" name="consentimento" required>
-            <span>Autorizo o contato da CALM Clinique por WhatsApp e o uso dos meus dados
-            apenas para este agendamento, conforme a LGPD.</span>
-          </label>
-          <span class="campo__erro" data-erro-de="consentimento" aria-live="polite"></span>
-
-          <div class="form__acoes">
-            <button class="btn btn--primario" type="submit">Enviar pelo WhatsApp</button>
-            <a class="btn btn--whatsapp" href="https://wa.me/5511900000000" rel="noopener">
-              <svg class="btn__icone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.2.2-3.5-.7-2.9-1.2-4.8-4.2-5-4.4-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2c.1.2.1.4 0 .6l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.7-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.3.1.5.2.5.4v.6Z"/></svg>
-              Falar agora
-            </a>
-          </div>
-
-          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
-          <p class="legenda">Seus dados não são armazenados neste site — a mensagem é enviada direto ao WhatsApp da clínica.</p>
-        </form>
+        <div class="credencial">
+          <span class="credencial__selo" aria-hidden="true"><svg width="24" height="24"><use href="#ic-selo"></use></svg></span>
+          <p class="legenda">
+            <strong>Dra. Amanda Santos</strong><br>
+            Cirurgiã-dentista · CD 13249/PE<br>
+            Responsável técnica da CALM Clinique
+          </p>
+        </div>
       </div>
 
     </div>
@@ -1223,19 +1182,19 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
       <div>
         <div class="rodape__marca">
           <svg aria-hidden="true" focusable="false"><use href="#logo-calm"></use></svg>
-          <span class="legenda" style="color:rgba(248,247,243,.82)">Harmonização facial<br>e estética avançada</span>
+          <span class="legenda" style="color:rgba(248,247,243,.82)">Harmonização orofacial<br>e estética facial</span>
         </div>
         <p class="legenda" style="color:rgba(248,247,243,.82); max-width:38ch">
-          Beleza sem pressa, com medida e método. Atendimento individual,
-          com hora marcada.
+          A beleza não está nos padrões. Planejamento individual, resultado
+          natural e acompanhamento de longo prazo.
         </p>
       </div>
 
       <nav aria-label="Navegação do rodapé">
         <h3>Navegação</h3>
         <ul class="rodape__lista">
-          <li><a href="#sobre">Sobre Amanda</a></li>
-          <li><a href="#procedimentos">Procedimentos</a></li>
+          <li><a href="#sobre">Sobre a Dra. Amanda</a></li>
+          <li><a href="#procedimentos">Áreas de atuação</a></li>
           <li><a href="#metodo">Método</a></li>
           <li><a href="#experiencia">A clínica</a></li>
           <li><a href="#faq">Dúvidas frequentes</a></li>
@@ -1246,17 +1205,17 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
       <div>
         <h3>Contato</h3>
         <ul class="rodape__lista">
-          <li>Rua Exemplo, 000 — Sala 00<br>Bairro · Cidade — UF</li>
-          <li><a href="https://wa.me/5511900000000">WhatsApp (11) 90000-0000</a></li>
-          <li><a href="mailto:contato@calmclinique.com.br">contato@calmclinique.com.br</a></li>
-          <li>Seg a Sex · 9h–19h · Sáb · 9h–13h</li>
+          <li><a href="https://bit.ly/calmclinique" target="_blank" rel="noopener">Agendar — bit.ly/calmclinique</a></li>
+          <li><a href="https://instagram.com/calmclinique" target="_blank" rel="noopener">@calmclinique</a></li>
+          <li><a href="https://instagram.com/dra.amandapsantos" target="_blank" rel="noopener">@dra.amandapsantos</a></li>
+          <!-- Endereço e horários entram aqui quando definidos. -->
         </ul>
       </div>
 
     </div>
 
     <div class="rodape__base">
-      <span>© <span id="ano">2026</span> CALM Clinique · Amanda Santos · Responsável técnica — registro profissional 00000</span>
+      <span>© <span id="ano">2026</span> CALM Clinique · Responsável técnica: Dra. Amanda Santos · Cirurgiã-dentista CD 13249/PE</span>
       <span>Resultados variam de pessoa para pessoa. Este site não substitui avaliação presencial.</span>
     </div>
   </div>
@@ -1264,9 +1223,9 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
 <!-- ===================== BARRA FIXA MOBILE ===================== -->
 <div class="barra-fixa" role="region" aria-label="Ações rápidas">
-  <a class="btn btn--primario" href="#agendar">Agendar avaliação</a>
-  <a class="btn btn--whatsapp" href="https://wa.me/5511900000000" rel="noopener" aria-label="Falar pelo WhatsApp">
-    <svg class="btn__icone" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.7-1.2 1.3-1.9 1.4-.5.1-1.2.2-3.5-.7-2.9-1.2-4.8-4.2-5-4.4-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2c.1.2.1.4 0 .6l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.7-.1l.9-1c.2-.2.4-.2.6-.1l2 1c.3.1.5.2.5.4v.6Z"/></svg>
+  <a class="btn btn--primario" href="https://bit.ly/calmclinique" target="_blank" rel="noopener">Agendar avaliação</a>
+  <a class="btn btn--whatsapp" href="https://instagram.com/calmclinique" target="_blank" rel="noopener" aria-label="Abrir o Instagram da CALM Clinique">
+    <svg class="btn__icone" aria-hidden="true"><use href="#ic-instagram"></use></svg>
   </a>
 </div>
 
@@ -1274,25 +1233,12 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 (function () {
   'use strict';
 
-  /* ---------------------------------------------------------
-     CONFIGURAÇÃO — altere apenas esta linha para o número real
-     Formato: código do país + DDD + número, só dígitos.
-     --------------------------------------------------------- */
-  var WHATSAPP = '5511900000000';
-
   var $  = function (s, ctx) { return (ctx || document).querySelector(s); };
   var $$ = function (s, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(s)); };
 
   /* ---- Ano corrente no rodapé ---- */
   var ano = $('#ano');
   if (ano) { ano.textContent = new Date().getFullYear(); }
-
-  /* ---- Número do WhatsApp aplicado a todos os links ---- */
-  $$('a[href^="https://wa.me/"]').forEach(function (a) {
-    a.href = 'https://wa.me/' + WHATSAPP;
-    a.target = '_blank';
-    a.rel = 'noopener';
-  });
 
   /* ---- Menu mobile ---- */
   var btnMenu = $('#menu-btn');
@@ -1370,84 +1316,6 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     alvos.forEach(function (el) { obs.observe(el); });
-  }
-
-  /* ---- Máscara simples de telefone ---- */
-  var telefone = $('#telefone');
-  if (telefone) {
-    telefone.addEventListener('input', function () {
-      var d = telefone.value.replace(/\D/g, '').slice(0, 11);
-      var saida = d;
-      if (d.length > 2) {
-        saida = '(' + d.slice(0, 2) + ') ' + d.slice(2);
-      }
-      if (d.length > 6) {
-        var corte = d.length > 10 ? 7 : 6;
-        saida = '(' + d.slice(0, 2) + ') ' + d.slice(2, corte) + '-' + d.slice(corte);
-      }
-      telefone.value = saida;
-    });
-  }
-
-  /* ---- Formulário → mensagem pronta no WhatsApp ---- */
-  var form = $('#form-agendamento');
-
-  function mostrarErro(campo, mensagem) {
-    var alvo = $('[data-erro-de="' + campo.name + '"]');
-    if (alvo) { alvo.textContent = mensagem; }
-    var grupo = campo.closest('.campo');
-    if (grupo) { grupo.classList.toggle('campo--erro', Boolean(mensagem)); }
-    campo.setAttribute('aria-invalid', mensagem ? 'true' : 'false');
-  }
-
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var nome = $('#nome');
-      var tel = $('#telefone');
-      var consent = $('#consentimento');
-      var status = $('#form-status');
-      var valido = true;
-      var primeiroInvalido = null;
-
-      if (nome.value.trim().length < 2) {
-        mostrarErro(nome, 'Escreva seu nome.');
-        primeiroInvalido = primeiroInvalido || nome;
-        valido = false;
-      } else { mostrarErro(nome, ''); }
-
-      var digitos = tel.value.replace(/\D/g, '');
-      if (digitos.length < 10) {
-        mostrarErro(tel, 'Informe DDD + número.');
-        primeiroInvalido = primeiroInvalido || tel;
-        valido = false;
-      } else { mostrarErro(tel, ''); }
-
-      if (!consent.checked) {
-        mostrarErro(consent, 'É preciso autorizar o contato.');
-        primeiroInvalido = primeiroInvalido || consent;
-        valido = false;
-      } else { mostrarErro(consent, ''); }
-
-      if (!valido) {
-        status.textContent = 'Confira os campos destacados para continuar.';
-        if (primeiroInvalido) { primeiroInvalido.focus(); }
-        return;
-      }
-
-      var texto =
-        'Olá, CALM Clinique! Gostaria de agendar uma avaliação.\n\n' +
-        'Nome: ' + nome.value.trim() + '\n' +
-        'WhatsApp: ' + tel.value.trim() + '\n' +
-        'Interesse: ' + $('#procedimento').value;
-
-      var mensagem = $('#mensagem').value.trim();
-      if (mensagem) { texto += '\nObservação: ' + mensagem; }
-
-      status.textContent = 'Tudo certo — abrindo o WhatsApp com sua mensagem.';
-      window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
-    });
   }
 })();
 </script>
