@@ -59,7 +59,7 @@ const arte = (FILL) => `
   ${marcos}
 </svg>`;
 
-const competencias = ['CONSULTORIA COMERCIAL', 'CUSTOMER EXPERIENCE', 'DESENVOLVIMENTO WEB'];
+const competencias = ['CONSULTORIA COMERCIAL', 'TREINAMENTO DE TIMES', 'DESENVOLVIMENTO WEB'];
 const legenda = competencias.map((c, i) =>
   `<li>${i ? '<span class="sp"></span>' : ''}${c}</li>`).join('');
 
@@ -97,7 +97,7 @@ Object.entries(temas).forEach(([nome, t]) => {
 body{display:grid;place-items:center;min-height:100vh;background:#E3DFDA}</style></head>
 <body><div class="cv">${arte(t.fill)}<div class="tx">
     <p class="mark"><span class="tr"></span>VICTÓRIA L'AMOUR <i>·</i> RECIFE / PE</p>
-    <h1>Vender é <em>técnica</em>,<br>encantar é <em>estratégia</em>.</h1>
+    <h1>Experiência do cliente,<br><em>do time à tela</em>.</h1>
     <ul class="leg">${legenda}</ul>
   </div></div></body></html>`);
 });
