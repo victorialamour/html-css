@@ -256,10 +256,19 @@ section[id], main[id]{ scroll-margin-top:92px; }
   display:flex; align-items:center; justify-content:space-between;
   gap:var(--sp-4);
   min-height:76px;
+  transition:min-height var(--transicao);
 }
+.cabecalho.is-scrolled .cabecalho__barra{ min-height:60px; }
+
+/* No mobile o CTA vive na barra fixa: repetir no topo só aperta o logo */
+.cabecalho__acoes .btn{ display:none; }
 .marca{ display:flex; align-items:center; gap:12px; }
 .marca:hover{ text-decoration:none; }
-.marca__logo{ width:52px; height:52px; flex:none; }
+.marca__logo{
+  width:52px; height:52px; flex:none;
+  transition:width var(--transicao), height var(--transicao);
+}
+.cabecalho.is-scrolled .marca__logo{ width:40px; height:40px; }
 .marca__texto{
   font-size:var(--t-eyebrow); letter-spacing:.16em; text-transform:uppercase;
   color:var(--silencio-roca); line-height:1.4; display:none;
@@ -360,6 +369,24 @@ section[id], main[id]{ scroll-margin-top:92px; }
 /* ==========================================================
    07 · HERO
    ========================================================== */
+/* Entrada no carregamento: sequência, não um fade coletivo.
+   Roda por CSS (sem depender do JS) e o bloco de
+   prefers-reduced-motion no fim do arquivo a anula. */
+@keyframes sobe{
+  from{ opacity:0; transform:translateY(16px); }
+  to  { opacity:1; transform:none; }
+}
+@keyframes aproxima{
+  from{ opacity:0; transform:scale(1.05); }
+  to  { opacity:1; transform:none; }
+}
+.hero__conteudo > *{ animation:sobe 780ms cubic-bezier(.22,.61,.36,1) both; }
+.hero__conteudo > *:nth-child(1){ animation-delay: 80ms; }
+.hero__conteudo > *:nth-child(2){ animation-delay:160ms; }
+.hero__conteudo > *:nth-child(3){ animation-delay:260ms; }
+.hero__conteudo > *:nth-child(4){ animation-delay:360ms; }
+.hero__conteudo > *:nth-child(5){ animation-delay:440ms; }
+.hero__figura .foto img{ animation:aproxima 1300ms cubic-bezier(.22,.61,.36,1) both; }
 .hero{ padding-top:var(--sp-12); padding-bottom:var(--sp-secao); }
 .hero__grid{ display:grid; gap:var(--sp-12); align-items:center; }
 .hero__figura{ position:relative; }
@@ -432,6 +459,11 @@ section[id], main[id]{ scroll-margin-top:92px; }
 .card:hover .card__seta{ background:var(--piel-de-sol); transform:translateX(3px); }
 .card:hover h3{ color:var(--piel-de-sol); }
 
+@media (hover:hover) and (min-width:1024px){
+  .card__midia img{ transition:transform 700ms cubic-bezier(.22,.61,.36,1); }
+  .card:hover .card__midia img{ transform:scale(1.05); }
+}
+
 /* Método — passos */
 .metodo{ background:var(--raiz-profunda); color:var(--luz-calma); }
 .metodo h2, .metodo h3{ color:var(--luz-calma); }
@@ -498,9 +530,20 @@ section[id], main[id]{ scroll-margin-top:92px; }
   content:""; position:absolute; background:var(--raiz-profunda);
 }
 .faq__mais::before{ width:12px; height:1px; }
-.faq__mais::after{ width:1px; height:12px; transition:opacity var(--transicao); }
+.faq__mais::after{
+  width:1px; height:12px;
+  transition:opacity var(--transicao), transform var(--transicao);
+}
 .faq__item[open] .faq__mais{ border-color:var(--piel-de-sol); }
-.faq__item[open] .faq__mais::after{ opacity:0; }
+.faq__item[open] .faq__mais::after{ opacity:0; transform:rotate(90deg); }
+
+/* A altura anima de 0fr para 1fr; o JS segura o fechamento
+   até a transição terminar. Sem JS, o <details> abre normalmente. */
+.faq__anim{
+  display:grid; grid-template-rows:1fr;
+  transition:grid-template-rows 420ms cubic-bezier(.22,.61,.36,1);
+}
+.faq__anim > div{ overflow:hidden; }
 .faq__resposta{
   padding:0 var(--sp-4) var(--sp-6) 0;
   font-size:var(--t-legenda); line-height:1.85;
@@ -597,7 +640,17 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 /* ==========================================================
    12 · MOVIMENTO (respeita prefers-reduced-motion)
    ========================================================== */
+/* O movimento marca hierarquia: só três grupos entram em cascata,
+   o resto da página fica parado. */
 .revelar{ opacity:0; transform:translateY(18px); }
+.faixa__item.revelar:nth-child(2),
+.card.revelar:nth-child(2),
+.passo.revelar:nth-child(2){ transition-delay: 90ms; }
+.faixa__item.revelar:nth-child(3),
+.card.revelar:nth-child(3),
+.passo.revelar:nth-child(3){ transition-delay:180ms; }
+.card.revelar:nth-child(4),
+.passo.revelar:nth-child(4){ transition-delay:270ms; }
 .revelar.is-visivel{
   opacity:1; transform:none;
   transition:opacity 700ms ease, transform 700ms cubic-bezier(.22,.61,.36,1);
@@ -611,6 +664,23 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
    13 · BREAKPOINTS
    Mobile ≤640 · Tablet 641–1023 · Desktop 1024–1440 · Wide >1440
    ========================================================== */
+@media (max-width: 640px){
+  /* Quatro cards empilhados custavam 2.000px de rolagem.
+     Vira carrossel com encaixe, sangrando até a borda da tela. */
+  .grade-procedimentos{
+    display:flex; gap:var(--sp-4);
+    overflow-x:auto; overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:var(--gutter);
+    margin-inline:calc(var(--gutter) * -1);
+    padding:0 var(--gutter) var(--sp-2);
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .grade-procedimentos::-webkit-scrollbar{ display:none; }
+  .grade-procedimentos .card{ flex:0 0 76%; scroll-snap-align:start; }
+  .grade-procedimentos .card__desc{ max-width:none; }
+}
+
 @media (min-width: 641px){
   .grade-procedimentos{ grid-template-columns:repeat(2,1fr); }
   .grade-depoimentos{ grid-template-columns:repeat(2,1fr); }
@@ -635,6 +705,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 
   .barra-fixa{ display:none; }
   body{ padding-bottom:0; }
+  .cabecalho__acoes .btn{ display:inline-flex; }
 
   .hero{ padding-top:var(--sp-12); }
   .hero__grid{ grid-template-columns:1.05fr .95fr; gap:80px; }
@@ -726,7 +797,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   <section class="secao hero" aria-labelledby="hero-titulo">
     <div class="container hero__grid">
 
-      <figure class="hero__figura revelar">
+      <figure class="hero__figura">
         <div class="foto foto--retrato">
           <img src="img/hero-amanda.jpg"
                alt="Dra. Amanda Santos, cirurgiã-dentista da CALM Clinique, segurando um paquímetro digital junto ao rosto durante a análise de proporções faciais."
@@ -738,7 +809,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         </div>
       </figure>
 
-      <div class="hero__conteudo revelar">
+      <div class="hero__conteudo">
         <p class="eyebrow">Harmonização orofacial · Dra. Amanda Santos</p>
         <h1 id="hero-titulo">A beleza não está nos <span class="acento">padrões</span>.</h1>
         <p class="hero__texto">
@@ -796,7 +867,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         </div>
       </div>
 
-      <div class="revelar">
+      <div>
         <p class="eyebrow">Quem conduz</p>
         <h2 id="sobre-titulo">Dra. Amanda Santos</h2>
         <p class="texto-longo" style="margin-top:var(--sp-6)">
@@ -965,7 +1036,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         </div>
       </div>
 
-      <div class="revelar">
+      <div>
         <p class="eyebrow">A clínica</p>
         <h2 id="exp-titulo">Cuidado do início ao <span class="acento">fim</span></h2>
         <p class="texto-longo" style="margin-top:var(--sp-6)">
@@ -990,8 +1061,8 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   <section class="secao manifesto" aria-labelledby="manifesto-titulo">
     <div class="container">
       <h2 class="sr-only" id="manifesto-titulo">Posicionamento da CALM Clinique</h2>
-      <blockquote class="revelar">“A beleza não está nos padrões.”</blockquote>
-      <cite class="revelar">Dra. Amanda Santos · CALM Clinique</cite>
+      <blockquote>“A beleza não está nos padrões.”</blockquote>
+      <cite>Dra. Amanda Santos · CALM Clinique</cite>
     </div>
   </section>
 
@@ -1029,60 +1100,72 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         <details class="faq__item">
           <summary class="faq__pergunta">A avaliação já inclui o procedimento?
             <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
+          <div class="faq__anim"><div>
+            <div class="faq__resposta">
             <p>Não. A avaliação é uma consulta à parte: conversa, análise das proporções
             e plano individual. Se houver indicação e você quiser aplicar no mesmo dia,
             é possível, mas nunca é condição.</p>
           </div>
+          </div></div>
         </details>
 
         <details class="faq__item">
           <summary class="faq__pergunta">Vou ficar com cara de “feita”?
             <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
+          <div class="faq__anim"><div>
+            <div class="faq__resposta">
             <p>Esse é justamente o critério do consultório. Trabalhamos com doses
             conservadoras e resultado natural. Quando um procedimento da moda não é
             a melhor escolha para o seu caso, ele não entra no plano.</p>
           </div>
+          </div></div>
         </details>
 
         <details class="faq__item">
           <summary class="faq__pergunta">Dói? Como funciona o conforto durante o procedimento?
             <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
+          <div class="faq__anim"><div>
+            <div class="faq__resposta">
             <p>Usamos anestésico tópico e, quando indicado, anestesia local, além de
             técnica e equipamento escolhidos para reduzir dor e edema. A maioria dos
             pacientes descreve como um desconforto breve.</p>
           </div>
+          </div></div>
         </details>
 
         <details class="faq__item">
           <summary class="faq__pergunta">Quanto tempo dura o resultado?
             <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
+          <div class="faq__anim"><div>
+            <div class="faq__resposta">
             <p>Depende do produto, da região e do seu metabolismo. A estimativa do seu
             caso entra no plano por escrito, junto com o calendário de retornos,
             porque o acompanhamento é o que mantém o resultado ao longo dos anos.</p>
           </div>
+          </div></div>
         </details>
 
         <details class="faq__item">
           <summary class="faq__pergunta">Existe idade certa para começar?
             <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
+          <div class="faq__anim"><div>
+            <div class="faq__resposta">
             <p>Não existe idade certa. Existe indicação: atendemos a partir dos 18 anos
             e o critério é sempre o que a avaliação mostra.</p>
           </div>
+          </div></div>
         </details>
 
         <details class="faq__item">
           <summary class="faq__pergunta">Como faço para agendar?
             <span class="faq__mais" aria-hidden="true"></span></summary>
-          <div class="faq__resposta">
+          <div class="faq__anim"><div>
+            <div class="faq__resposta">
             <p>Pelo link oficial de agendamento da clínica,
             <a href="https://bit.ly/calmclinique" target="_blank" rel="noopener">bit.ly/calmclinique</a>,
             ou pelo direct do <a href="https://instagram.com/calmclinique" target="_blank" rel="noopener">@calmclinique</a>.</p>
           </div>
+          </div></div>
         </details>
       </div>
     </div>
@@ -1092,7 +1175,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   <section class="secao agendar" id="agendar" aria-labelledby="agendar-titulo">
     <div class="container agendar__grid">
 
-      <div class="revelar">
+      <div>
         <p class="eyebrow">Agende sua avaliação</p>
         <h2 id="agendar-titulo">O primeiro passo é a <span class="acento">conversa</span></h2>
         <p class="texto-longo" style="margin-top:var(--sp-6)">
@@ -1106,7 +1189,7 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
         </div>
       </div>
 
-      <div class="revelar">
+      <div>
         <ul class="canais">
           <li class="canal">
             <span class="canal__icone" aria-hidden="true"><svg><use href="#ic-agenda"></use></svg></span>
@@ -1253,14 +1336,47 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   window.addEventListener('scroll', aoRolar, { passive: true });
   aoRolar();
 
-  /* ---- FAQ: apenas um item aberto por vez ---- */
+  /* ---- FAQ: um item por vez, abrindo com altura animada ----
+     O <details> continua sendo a fonte da verdade; o clique é
+     interceptado só para segurar o fechamento até a transição
+     terminar. Sem JS, o acordeão funciona nativamente. */
   var itensFaq = $$('.faq__item');
+  var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DURACAO_FAQ = 420;
+
+  function alturaFaq(item, valor) {
+    var caixa = $('.faq__anim', item);
+    if (caixa) { caixa.style.gridTemplateRows = valor; }
+  }
+
+  function abrirFaq(item) {
+    item.open = true;
+    if (semMovimento) { return; }
+    alturaFaq(item, '0fr');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { alturaFaq(item, '1fr'); });
+    });
+  }
+
+  function fecharFaq(item) {
+    if (semMovimento) { item.open = false; return; }
+    alturaFaq(item, '0fr');
+    window.setTimeout(function () {
+      item.open = false;
+      alturaFaq(item, '');
+    }, DURACAO_FAQ);
+  }
+
   itensFaq.forEach(function (item) {
-    item.addEventListener('toggle', function () {
-      if (!item.open) { return; }
+    var pergunta = $('.faq__pergunta', item);
+    if (!pergunta) { return; }
+    pergunta.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (item.open) { fecharFaq(item); return; }
       itensFaq.forEach(function (outro) {
-        if (outro !== item) { outro.open = false; }
+        if (outro !== item && outro.open) { fecharFaq(outro); }
       });
+      abrirFaq(item);
     });
   });
 
