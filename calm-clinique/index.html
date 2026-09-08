@@ -658,8 +658,49 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 }
 @media (prefers-reduced-motion: reduce){
   .revelar, .revelar.is-visivel{ opacity:1; transform:none; transition:none; }
+  .mascara__t{ transform:none !important; }
+  .foto--profundidade img{ height:100%; top:0; }
+  .progresso{ display:none; }
   *{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
 }
+
+
+/* ==========================================================
+   12b · MOVIMENTO LIGADO À ROLAGEM
+   A página se comporta como uma câmera lenta: tudo se move
+   menos do que a rolagem, nunca mais. Todo efeito abaixo usa
+   as propriedades independentes translate/scale, deixando
+   transform livre para as animações de carregamento e hover.
+   ========================================================== */
+
+/* Barra de leitura */
+.progresso{
+  position:fixed; inset:0 0 auto 0; height:2px; z-index:90;
+  pointer-events:none;
+}
+.progresso span{
+  display:block; height:100%; background:var(--piel-de-sol);
+  transform:scaleX(0); transform-origin:0 50%;
+}
+
+/* Profundidade: a foto corre mais devagar que a moldura */
+.foto--profundidade img{ height:114%; position:relative; top:-7%; }
+
+/* Títulos que sobem de trás de uma máscara, palavra a palavra.
+   O respiro embaixo evita cortar cedilha e descendentes. */
+.mascara{
+  display:inline-block; overflow:hidden; vertical-align:top;
+  padding-bottom:.14em; margin-bottom:-.14em;
+}
+.mascara__t{
+  display:inline-block;
+  transform:translateY(108%);
+  transition:transform 880ms cubic-bezier(.22,.61,.36,1);
+}
+.is-visivel .mascara__t{ transform:none; }
+
+/* O hero se afasta ao sair de cena */
+.hero__grid{ will-change:opacity; }
 
 /* ==========================================================
    13 · BREAKPOINTS
@@ -726,6 +767,65 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
   .container{ max-width:1280px; }   /* nunca esticar */
 }
 
+/* ==========================================================
+   14 · MOBILE COMPACTO
+   A escala do sistema (seções de 96px, blocos de 48px) foi
+   pensada para desktop e sufoca a tela pequena. Aqui muda só
+   ritmo e tamanho; cor, tipografia e componentes seguem iguais.
+   ========================================================== */
+@media (max-width: 640px){
+  :root{
+    --sp-secao: 60px;
+    --sp-12: 32px;
+    --gutter: 18px;
+    --t-h1: 2rem;        /* 38,7px -> 32px */
+    --t-h2: 1.5rem;      /* 28,5px -> 24px */
+    --t-h3: 1.125rem;    /* 20,2px -> 18px */
+  }
+  body{ line-height:1.7; }
+  .texto-longo, .legenda, .card__desc, .passo__desc,
+  .faq__resposta, .canal__valor{ line-height:1.7; }
+
+  .hero{ padding-top:24px; }
+  .hero__grid{ gap:30px; }
+  .hero .foto--retrato{ aspect-ratio:5/6; }
+  .hero p.hero__texto{ margin-top:18px; }
+  .hero .grupo-btn{ margin-top:26px; }
+  .hero__nota{ margin-top:20px; }
+
+  .faixa{ padding-block:40px; }
+  .faixa__grid{ gap:32px; }
+  .faixa__num{ margin-bottom:10px; }
+
+  .cabecalho-secao{ margin-bottom:32px; }
+  .cabecalho-secao p{ margin-top:16px; }
+  .duas-colunas{ gap:32px; }
+  .lista-marcada{ margin-top:26px; gap:12px; }
+  .assinatura{ font-size:1.75rem; margin-top:18px; }
+  .galeria{ gap:10px; }
+
+  .passo{ padding-block:26px; }
+  .passo__num{ margin-bottom:6px; }
+
+  .manifesto blockquote{ max-width:15ch; }
+
+  .faq__pergunta{ padding-block:18px; min-height:56px; }
+  .faq__resposta{ padding-bottom:20px; }
+
+  .canais{ margin-top:32px; }
+  .canal{ padding-block:18px; }
+  .canal__icone{ width:38px; height:38px; }
+  .credencial{ margin-top:28px; padding:18px; }
+
+  .grupo-btn{ gap:12px; }
+  .btn{ padding:12px 22px; }
+
+  .rodape .container{ padding-block:56px 28px; }
+  .rodape__grid{ gap:36px; }
+  .rodape__marca svg{ width:52px; height:52px; }
+  .rodape__base{ margin-top:32px; padding-top:20px; }
+}
+
 /* Impressão */
 @media print{
   .cabecalho, .barra-fixa{ display:none; }
@@ -736,6 +836,8 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
 <body>
 
 <a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="progresso" aria-hidden="true"><span id="progresso"></span></div>
 
 <!-- ===== LOGO CALM CLINIQUE (SVG inline, sem arquivo externo) ===== -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -1391,10 +1493,57 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
     if (img.complete && img.naturalWidth === 0) { marcar(); }
   });
 
+  /* ---- Títulos que sobem de trás de uma máscara ----
+     Cada palavra vira um span com transbordo escondido. O texto
+     continua inteiro no DOM, então leitores de tela não mudam. */
+  function mascarar(el) {
+    var partes = [];
+    Array.prototype.slice.call(el.childNodes).forEach(function (no) {
+      if (no.nodeType === 3) {
+        no.textContent.split(/(\s+)/).forEach(function (pedaco) {
+          if (!pedaco.trim()) {
+            if (pedaco) { partes.push(document.createTextNode(pedaco)); }
+            return;
+          }
+          partes.push(envolver(document.createTextNode(pedaco)));
+        });
+      } else {
+        partes.push(envolver(no.cloneNode(true)));
+      }
+    });
+    while (el.firstChild) { el.removeChild(el.firstChild); }
+    var ordem = 0;
+    partes.forEach(function (no) {
+      el.appendChild(no);
+      var interno = no.querySelector && no.querySelector('.mascara__t');
+      if (interno) {
+        interno.style.transitionDelay = (ordem * 45) + 'ms';
+        ordem += 1;
+      }
+    });
+  }
+
+  function envolver(conteudo) {
+    var mascara = document.createElement('span');
+    var interno = document.createElement('span');
+    mascara.className = 'mascara';
+    interno.className = 'mascara__t';
+    interno.appendChild(conteudo);
+    mascara.appendChild(interno);
+    return mascara;
+  }
+
+  var titulos = $$('.cabecalho-secao h2, #sobre-titulo, #exp-titulo');
+  if (!semMovimento) {
+    titulos.forEach(function (t) {
+      mascarar(t);
+      t.classList.add('titulo-anim');
+    });
+  }
+
   /* ---- Revelar ao rolar ---- */
-  var reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var alvos = $$('.revelar');
-  if (reduzido || !('IntersectionObserver' in window)) {
+  var alvos = $$('.revelar, .titulo-anim');
+  if (semMovimento || !('IntersectionObserver' in window)) {
     alvos.forEach(function (el) { el.classList.add('is-visivel'); });
   } else {
     var obs = new IntersectionObserver(function (entradas) {
@@ -1406,6 +1555,70 @@ body{ padding-bottom:88px; }   /* respiro para a barra fixa */
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     alvos.forEach(function (el) { obs.observe(el); });
+    /* Rede de segurança: nada fica escondido se o observer falhar. */
+    window.setTimeout(function () {
+      alvos.forEach(function (el) { el.classList.add('is-visivel'); });
+    }, 4000);
+  }
+
+  /* ---- Motor de rolagem ----
+     Um só listener passivo e um requestAnimationFrame por quadro.
+     Tudo escrito em translate/scale, propriedades que o compositor
+     resolve sem recalcular layout. */
+  if (!semMovimento) {
+    var camadas = [];
+    $$('.hero__figura .foto, #sobre .duas-colunas__figura .foto, .galeria .foto').forEach(function (moldura) {
+      var img = $('img', moldura);
+      if (!img) { return; }
+      moldura.classList.add('foto--profundidade');
+      camadas.push({ moldura: moldura, img: img, amplitude: moldura.closest('.galeria') ? 3.5 : 5.5 });
+    });
+
+    var grelhaHero = $('.hero__grid');
+    var citacao = $('.manifesto blockquote');
+    var barra = $('#progresso');
+    var pendente = false;
+
+    function quadro() {
+      pendente = false;
+      var vh = window.innerHeight;
+
+      camadas.forEach(function (c) {
+        var r = c.moldura.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > vh + 80) { return; }
+        var avanco = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2);
+        c.img.style.translate = '0 ' + (avanco * c.amplitude).toFixed(2) + '%';
+      });
+
+      if (grelhaHero) {
+        var rh = grelhaHero.getBoundingClientRect();
+        var saida = Math.min(1, Math.max(0, -rh.top / (rh.height * 0.9)));
+        grelhaHero.style.opacity = (1 - saida * 0.7).toFixed(3);
+        grelhaHero.style.translate = '0 ' + (saida * -34).toFixed(1) + 'px';
+      }
+
+      if (citacao) {
+        var rc = citacao.getBoundingClientRect();
+        var perto = 1 - Math.min(1, Math.abs(rc.top + rc.height / 2 - vh / 2) / (vh * 0.75));
+        citacao.style.scale = (0.955 + perto * 0.045).toFixed(4);
+      }
+
+      if (barra) {
+        var alcance = document.documentElement.scrollHeight - vh;
+        var lido = alcance > 0 ? window.pageYOffset / alcance : 0;
+        barra.style.transform = 'scaleX(' + Math.min(1, Math.max(0, lido)).toFixed(4) + ')';
+      }
+    }
+
+    function pedirQuadro() {
+      if (pendente) { return; }
+      pendente = true;
+      requestAnimationFrame(quadro);
+    }
+
+    window.addEventListener('scroll', pedirQuadro, { passive: true });
+    window.addEventListener('resize', pedirQuadro, { passive: true });
+    quadro();
   }
 })();
 </script>
