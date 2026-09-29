@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roupas | MARCA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div data-parcial="topo"></div>
+
+    <main class="secao">
+        <nav class="trilha" aria-label="Você está em">
+            <a href="index.html">Início</a> / <span>Roupas</span>
+        </nav>
+        <h1 class="secao__titulo secao__titulo--pagina">Roupas</h1>
+
+        <div class="filtros">
+            <div class="filtros__chips">
+                <button class="chip ativo" type="button">Todos</button>
+                <button class="chip" type="button">Vestidos</button>
+                <button class="chip" type="button">Blusas</button>
+                <button class="chip" type="button">Conjuntos</button>
+                <button class="chip" type="button">Saias</button>
+            </div>
+            <label class="filtros__ordenar">
+                Ordenar por
+                <select>
+                    <option>Mais vendidos</option>
+                    <option>Lançamentos</option>
+                    <option>Menor preço</option>
+                    <option>Maior preço</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="vitrine vitrine--grade" data-vitrine="todos"></div>
+    </main>
+
+    <div data-parcial="rodape"></div>
+
+    <script src="js/parciais.js"></script>
+    <script src="js/produtos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

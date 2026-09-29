@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARCA | Moda Feminina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div data-parcial="topo"></div>
+
+    <main>
+        <!-- BANNER PRINCIPAL (carrossel) -->
+        <section class="hero" aria-label="Destaques">
+            <div class="hero__slide ativo" style="--bg: #cbb8a6">
+                <div class="hero__texto">
+                    <p class="sobretitulo">Nova coleção</p>
+                    <h1>Primavera<br>Verão 26</h1>
+                    <a href="categoria.html" class="btn btn--claro">Conhecer</a>
+                </div>
+            </div>
+            <div class="hero__slide" style="--bg: #a9a18f">
+                <div class="hero__texto">
+                    <p class="sobretitulo">Essenciais</p>
+                    <h1>Linho &amp;<br>alfaiataria</h1>
+                    <a href="categoria.html" class="btn btn--claro">Ver peças</a>
+                </div>
+            </div>
+            <div class="hero__slide" style="--bg: #d9c7bb">
+                <div class="hero__texto">
+                    <p class="sobretitulo">Sale</p>
+                    <h1>Até 50% OFF</h1>
+                    <a href="categoria.html" class="btn btn--claro">Aproveitar</a>
+                </div>
+            </div>
+            <div class="hero__pontos"></div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="beneficios">
+            <div><strong>Frete grátis</strong><span>acima de R$ 399</span></div>
+            <div><strong>6x sem juros</strong><span>no cartão de crédito</span></div>
+            <div><strong>5% OFF no PIX</strong><span>desconto automático</span></div>
+            <div><strong>Troca fácil</strong><span>primeira troca grátis</span></div>
+        </section>
+
+        <!-- CATEGORIAS EM DESTAQUE -->
+        <section class="secao">
+            <h2 class="secao__titulo">Compre por categoria</h2>
+            <div class="categorias">
+                <a href="categoria.html" class="categoria" style="--bg:#d8cbbd"><span>Vestidos</span></a>
+                <a href="categoria.html" class="categoria" style="--bg:#c4b5a3"><span>Blusas &amp; Bodies</span></a>
+                <a href="categoria.html" class="categoria" style="--bg:#b8ab9a"><span>Conjuntos</span></a>
+                <a href="categoria.html" class="categoria" style="--bg:#e3d8cc"><span>Acessórios</span></a>
+            </div>
+        </section>
+
+        <!-- VITRINE: NOVIDADES -->
+        <section class="secao">
+            <div class="secao__cabecalho">
+                <h2 class="secao__titulo">Novidades</h2>
+                <a href="categoria.html" class="link-sublinhado">Ver tudo</a>
+            </div>
+            <div class="vitrine" data-vitrine="novidades"></div>
+        </section>
+
+        <!-- BANNER DUPLO -->
+        <section class="banner-duplo">
+            <a href="categoria.html" style="--bg:#bfae9c">
+                <div><p class="sobretitulo">Coleção</p><h3>Resort</h3><span class="link-sublinhado">Descobrir</span></div>
+            </a>
+            <a href="categoria.html" style="--bg:#9f9585">
+                <div><p class="sobretitulo">Edit</p><h3>Office chic</h3><span class="link-sublinhado">Descobrir</span></div>
+            </a>
+        </section>
+
+        <!-- VITRINE: MAIS VENDIDOS -->
+        <section class="secao">
+            <div class="secao__cabecalho">
+                <h2 class="secao__titulo">Mais amados</h2>
+                <a href="categoria.html" class="link-sublinhado">Ver tudo</a>
+            </div>
+            <div class="vitrine" data-vitrine="mais-vendidos"></div>
+        </section>
+
+        <!-- INSTAGRAM -->
+        <section class="secao instagram">
+            <h2 class="secao__titulo">@marca no Instagram</h2>
+            <div class="instagram__grade">
+                <a href="#" style="--bg:#d4c4b3"></a>
+                <a href="#" style="--bg:#bcae9e"></a>
+                <a href="#" style="--bg:#e0d4c7"></a>
+                <a href="#" style="--bg:#a89c8c"></a>
+                <a href="#" style="--bg:#cdbcaa"></a>
+                <a href="#" style="--bg:#b3a594"></a>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+            <h2>Ganhe 10% OFF na primeira compra</h2>
+            <p>Cadastre-se e receba as novidades antes de todo mundo.</p>
+            <form class="newsletter__form">
+                <input type="email" placeholder="Seu e-mail" required aria-label="E-mail">
+                <button type="submit" class="btn btn--escuro">Cadastrar</button>
+            </form>
+            <p class="newsletter__ok" hidden>Pronto! Seu cupom foi enviado para o seu e-mail.</p>
+        </section>
+    </main>
+
+    <div data-parcial="rodape"></div>
+
+    <script src="js/parciais.js"></script>
+    <script src="js/produtos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

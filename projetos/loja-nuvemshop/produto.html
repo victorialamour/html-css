@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto | MARCA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div data-parcial="topo"></div>
+
+    <main class="secao" data-pagina-produto>
+        <nav class="trilha" aria-label="Você está em">
+            <a href="index.html">Início</a> / <a href="categoria.html">Roupas</a> / <span class="pdp__trilha-nome"></span>
+        </nav>
+
+        <div class="pdp">
+            <div class="pdp__fotos">
+                <span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="pdp__info">
+                <h1 class="pdp__nome"></h1>
+                <p class="pdp__preco"></p>
+                <p class="pdp__parcela"></p>
+
+                <p class="pdp__rotulo">Cor</p>
+                <div class="pdp__cores"></div>
+
+                <p class="pdp__rotulo">Tamanho <a href="#" class="link-sublinhado">Guia de medidas</a></p>
+                <div class="pdp__tamanhos">
+                    <button type="button">PP</button>
+                    <button type="button">P</button>
+                    <button type="button">M</button>
+                    <button type="button">G</button>
+                    <button type="button" disabled>GG</button>
+                </div>
+                <p class="pdp__aviso" hidden>Selecione um tamanho.</p>
+
+                <button class="btn btn--escuro btn--cheio pdp__comprar" type="button">Adicionar à sacola</button>
+                <a href="#" class="btn btn--contorno btn--cheio">Comprar pelo WhatsApp</a>
+
+                <form class="pdp__cep">
+                    <label for="cep">Calcular frete</label>
+                    <div>
+                        <input id="cep" type="text" inputmode="numeric" placeholder="00000-000" maxlength="9" required>
+                        <button type="submit" class="btn btn--contorno">OK</button>
+                    </div>
+                    <div class="pdp__cep-resultado"></div>
+                </form>
+
+                <details open>
+                    <summary>Descrição</summary>
+                    <p>Peça de caimento fluido, com modelagem que valoriza a silhueta. Perfeita para compor looks do dia a dia ao evento.</p>
+                </details>
+                <details>
+                    <summary>Composição e cuidados</summary>
+                    <p>100% linho. Lavar à mão em água fria, não usar alvejante, secar à sombra.</p>
+                </details>
+                <details>
+                    <summary>Trocas e devoluções</summary>
+                    <p>Primeira troca grátis em até 7 dias após o recebimento. A peça deve estar com a etiqueta.</p>
+                </details>
+            </div>
+        </div>
+
+        <section>
+            <h2 class="secao__titulo">Você também vai amar</h2>
+            <div class="vitrine" data-vitrine="mais-vendidos"></div>
+        </section>
+    </main>
+
+    <div data-parcial="rodape"></div>
+
+    <script src="js/parciais.js"></script>
+    <script src="js/produtos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
